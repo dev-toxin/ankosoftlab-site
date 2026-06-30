@@ -3,100 +3,783 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnKo Software Labs LLC</title>
+    <meta name="description" content="AnKo Software Labs develops proprietary B2B SaaS products for reputation management, automation, and AI-assisted business workflows.">
+    <title>AnKo Software Labs | Engineered Software</title>
     <style>
-        body {
-            background-color: #000000;
-            color: #FFFFFF;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 24px;
+        :root {
+            --bg: #050505;
+            --surface: #0d0d0f;
+            --surface-soft: #151518;
+            --border: #27272a;
+            --border-soft: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+            --muted: #a1a1aa;
+            --muted-dark: #71717a;
+            --accent: #f5f5f5;
+            --max-width: 1120px;
+            --radius-lg: 28px;
+            --radius-md: 18px;
+            --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+        }
+
+        * {
             box-sizing: border-box;
-            text-align: center;
         }
-        .container {
-            max-width: 600px;
+
+        html {
+            scroll-behavior: smooth;
         }
-        img.logo {
-            max-width: 240px;
-            height: auto;
-            margin-bottom: 40px;
-        }
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin: 0 0 16px 0;
-            letter-spacing: -0.5px;
-        }
-        p {
-            color: #A1A1AA;
-            font-size: 16px;
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.08), transparent 28%),
+                radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.06), transparent 30%),
+                var(--bg);
+            color: var(--text);
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             line-height: 1.6;
-            margin: 0 0 40px 0;
         }
-        .product-link {
-            border: 1px solid #3F3F46;
-            padding: 16px 24px;
-            border-radius: 12px;
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            width: min(100%, var(--max-width));
+            margin: 0 auto;
+            padding: 28px 24px 44px;
+        }
+
+        .nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 24px;
+            padding: 14px 0 48px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
             text-decoration: none;
-            color: #FFFFFF;
-            transition: border-color 0.2s;
-            max-width: 400px;
-            margin: 0 auto;
         }
-        .product-link:hover {
-            border-color: #71717A;
+
+        .brand-logo {
+            width: 58px;
+            height: 58px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            object-fit: cover;
+            background: #000;
         }
-        .product-info {
-            text-align: left;
+
+        .brand-title {
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
         }
-        .product-title {
-            font-weight: 600;
+
+        .brand-subtitle {
+            display: block;
+            color: var(--muted-dark);
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            transition: color 0.18s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+            gap: 34px;
+            align-items: stretch;
+            min-height: 620px;
+        }
+
+        .hero-card,
+        .proof-card,
+        .section-card {
+            border: 1px solid var(--border-soft);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+        }
+
+        .hero-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 620px;
+            padding: 44px;
+            border-radius: var(--radius-lg);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            width: fit-content;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--muted);
+            background: rgba(0, 0, 0, 0.28);
+            font-size: 13px;
+        }
+
+        .eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 18px rgba(34, 197, 94, 0.8);
+        }
+
+        h1 {
+            max-width: 780px;
+            margin: 0;
+            font-size: clamp(48px, 7vw, 86px);
+            line-height: 0.96;
+            letter-spacing: -0.075em;
+        }
+
+        .lead {
+            max-width: 690px;
+            margin: 30px 0 0;
+            color: var(--muted);
+            font-size: clamp(18px, 2vw, 21px);
+            line-height: 1.65;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 38px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+        }
+
+        .button-primary {
+            color: #050505;
+            background: var(--accent);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .button-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.24);
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 42px;
+        }
+
+        .meta-item {
+            min-height: 118px;
+            padding: 18px;
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-md);
+            background: rgba(0, 0, 0, 0.22);
+        }
+
+        .meta-value {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .meta-label {
+            display: block;
+            margin-top: 8px;
+            color: var(--muted-dark);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .proof-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 620px;
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+                var(--surface);
+        }
+
+        .logo-panel {
+            display: grid;
+            place-items: center;
+            min-height: 280px;
+            border: 1px solid var(--border-soft);
+            border-radius: 24px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .logo-panel img {
+            width: min(82%, 310px);
+            height: auto;
+        }
+
+        .proof-list {
+            display: grid;
+            gap: 12px;
+            margin: 28px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .proof-list li {
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-soft);
+            color: var(--muted);
             font-size: 15px;
         }
-        .product-desc {
+
+        .proof-list li:last-child {
+            border-bottom: 0;
+        }
+
+        .check {
+            flex: 0 0 auto;
+            color: var(--text);
+            font-weight: 800;
+        }
+
+        .section {
+            padding-top: 34px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 28px;
+            margin: 60px 0 20px;
+        }
+
+        .section-kicker {
+            margin: 0 0 10px;
+            color: var(--muted-dark);
             font-size: 13px;
-            color: #71717A;
-            margin-top: 2px;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
         }
-        .arrow {
-            color: #71717A;
-            font-size: 18px;
+
+        h2 {
+            max-width: 720px;
+            margin: 0;
+            font-size: clamp(32px, 4vw, 52px);
+            line-height: 1.02;
+            letter-spacing: -0.055em;
         }
-        footer {
-            margin-top: 64px;
-            color: #3F3F46;
+
+        .section-note {
+            max-width: 360px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .section-card {
+            min-height: 240px;
+            padding: 26px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        .card-number {
+            color: var(--muted-dark);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+
+        h3 {
+            margin: 42px 0 12px;
+            font-size: 21px;
+            line-height: 1.15;
+            letter-spacing: -0.025em;
+        }
+
+        .section-card p,
+        .product-copy p,
+        .founder-copy p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .product-card {
+            display: grid;
+            grid-template-columns: 1fr 0.82fr;
+            gap: 24px;
+            padding: 30px;
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-lg);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+                var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .product-copy {
+            padding: 14px;
+        }
+
+        .product-title-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .product-badge {
+            padding: 7px 11px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--muted);
             font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-size: 38px;
+            font-weight: 850;
+            letter-spacing: -0.06em;
+        }
+
+        .product-features {
+            display: grid;
+            gap: 12px;
+            margin: 28px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .product-features li {
+            padding: 14px 16px;
+            border: 1px solid var(--border-soft);
+            border-radius: 14px;
+            color: var(--muted);
+            background: rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+        }
+
+        .stack-panel {
+            padding: 24px;
+            border: 1px solid var(--border-soft);
+            border-radius: 22px;
+            background: rgba(0, 0, 0, 0.28);
+        }
+
+        .stack-title {
+            margin: 0 0 18px;
+            color: var(--muted-dark);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .stack-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .tag {
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.035);
+            font-size: 13px;
+        }
+
+        .founder {
+            display: grid;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: 18px;
+        }
+
+        .founder-aside,
+        .founder-copy {
+            padding: 28px;
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        .founder-name {
+            margin: 0 0 8px;
+            font-size: 28px;
+            font-weight: 850;
+            letter-spacing: -0.045em;
+        }
+
+        .founder-role {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .credential-list {
+            display: grid;
+            gap: 10px;
+            margin: 28px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .credential-list li {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .contact-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: center;
+            margin-top: 60px;
+            padding: 30px;
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-lg);
+            background: #f5f5f5;
+            color: #050505;
+        }
+
+        .contact-card h2 {
+            color: #050505;
+        }
+
+        .contact-card p {
+            max-width: 620px;
+            margin: 12px 0 0;
+            color: #3f3f46;
+        }
+
+        .contact-links {
+            display: grid;
+            gap: 10px;
+            text-align: right;
+            font-weight: 800;
+        }
+
+        .contact-links a {
+            text-decoration: none;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 28px 0 0;
+            color: var(--muted-dark);
+            font-size: 13px;
+        }
+
+        @media (max-width: 920px) {
+            .hero,
+            .product-card,
+            .founder,
+            .contact-card {
+                grid-template-columns: 1fr;
+            }
+
+            .hero,
+            .hero-card,
+            .proof-card {
+                min-height: auto;
+            }
+
+            .hero-meta,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .contact-links {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                padding: 18px 14px 34px;
+            }
+
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding-bottom: 28px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+
+            .hero-card,
+            .proof-card,
+            .product-card,
+            .contact-card {
+                padding: 22px;
+                border-radius: 22px;
+            }
+
+            h1 {
+                font-size: 46px;
+            }
+
+            footer {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Подгружаем ваш логотип из репозитория -->
-        <img src="anko_logo.jpg" alt="AnKo Software Labs" class="logo">
-        
-        <p>AnKo Software Labs LLC is an independent software development company specializing in proprietary B2B Mobile Software-as-a-Service (SaaS) architecture, automated data pipelining, and cloud-native reputation management systems.</p>
-        
-        <!-- Наша ссылка на продукт для комплаенса! -->
-        <a href="https://tapreply.net" target="_blank" class="product-link">
-            <div class="product-info">
-                <div class="product-title">TapReply</div>
-                <div class="product-desc">AI Review Manager for Local Business</div>
-            </div>
-            <div class="arrow">➔</div>
+<main class="page">
+    <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="AnKo Software Labs home">
+            <img class="brand-logo" src="anko_logo.jpg" alt="AnKo Software Labs logo">
+            <span>
+                <span class="brand-title">AnKo Software Labs</span>
+                <span class="brand-subtitle">Engineered Software</span>
+            </span>
         </a>
+        <div class="nav-links">
+            <a href="#company">Company</a>
+            <a href="#product">Product</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-        <footer>
-            &copy; 2026 AnKo Software Labs LLC. All rights reserved. | contact@ankosoftlab.com
-        </footer>
-    </div>
+    <section id="top" class="hero" aria-labelledby="hero-title">
+        <div class="hero-card">
+            <div>
+                <div class="eyebrow"><span class="eyebrow-dot"></span> Independent software company building proprietary B2B SaaS</div>
+                <h1 id="hero-title">Software products for practical business automation.</h1>
+                <p class="lead">
+                    AnKo Software Labs designs, develops, and operates cloud-native software products for small and local businesses, with a current focus on AI-assisted reputation management and customer communication workflows.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="https://tapreply.net" target="_blank" rel="noopener">View TapReply</a>
+                    <a class="button button-secondary" href="mailto:contact@ankosoftlab.com">contact@ankosoftlab.com</a>
+                </div>
+            </div>
+
+            <div class="hero-meta" aria-label="Company highlights">
+                <div class="meta-item">
+                    <span class="meta-value">B2B SaaS</span>
+                    <span class="meta-label">Product-led software for business workflows and digital operations.</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-value">AI + Mobile</span>
+                    <span class="meta-label">Mobile-first products backed by APIs, PostgreSQL, and AI integrations.</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-value">EU-facing</span>
+                    <span class="meta-label">Built for remote, international, English-speaking business operations.</span>
+                </div>
+            </div>
+        </div>
+
+        <aside class="proof-card" id="company" aria-label="Company profile">
+            <div class="logo-panel">
+                <img src="anko_logo.jpg" alt="AnKo Engineered Software">
+            </div>
+            <div>
+                <ul class="proof-list">
+                    <li><span class="check">✓</span><span>Independent software company focused on long-term proprietary product development.</span></li>
+                    <li><span class="check">✓</span><span>Active product roadmap around TapReply, a B2B application for review response automation.</span></li>
+                    <li><span class="check">✓</span><span>Engineering process based on version control, API contracts, cloud database infrastructure, and production release discipline.</span></li>
+                    <li><span class="check">✓</span><span>Commercial background in mobile application development, integrations, and client-server systems.</span></li>
+                </ul>
+            </div>
+        </aside>
+    </section>
+
+    <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-header">
+            <div>
+                <p class="section-kicker">What we do</p>
+                <h2 id="capabilities-title">Lean engineering for products that need to ship, run, and scale.</h2>
+            </div>
+            <p class="section-note">The company is intentionally focused: fewer services, deeper execution, clear ownership from architecture to release.</p>
+        </div>
+
+        <div class="grid-3">
+            <article class="section-card">
+                <span class="card-number">01</span>
+                <h3>Product engineering</h3>
+                <p>Designing and building mobile-first B2B software with clear user flows, maintainable architecture, and release-ready implementation.</p>
+            </article>
+            <article class="section-card">
+                <span class="card-number">02</span>
+                <h3>Backend systems</h3>
+                <p>REST APIs, PostgreSQL data models, authentication flows, integrations, observability, and reliable server-side business logic.</p>
+            </article>
+            <article class="section-card">
+                <span class="card-number">03</span>
+                <h3>AI workflows</h3>
+                <p>Practical AI automation for repetitive business communication tasks, with human-friendly UX and controlled API usage.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" id="product" aria-labelledby="product-title">
+        <div class="section-header">
+            <div>
+                <p class="section-kicker">Current product</p>
+                <h2 id="product-title">TapReply — AI Review Manager for local business.</h2>
+            </div>
+            <p class="section-note">TapReply is the company’s proprietary B2B application and primary product under development.</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-copy">
+                <div class="product-title-row">
+                    <span class="product-name">TapReply</span>
+                    <span class="product-badge">B2B SaaS</span>
+                </div>
+                <p>
+                    TapReply helps businesses process customer reviews faster by generating professional, brand-safe response drafts with AI. The product is designed for local service companies, hospitality, retail, clinics, and other operators that rely on public reputation.
+                </p>
+                <ul class="product-features">
+                    <li>AI-assisted review reply generation for daily reputation management.</li>
+                    <li>Mobile-first workflow for owners, managers, and small teams.</li>
+                    <li>Cloud backend with structured data storage and API-based integrations.</li>
+                    <li>Roadmap focused on multi-location support, analytics, templates, and team workflows.</li>
+                </ul>
+            </div>
+            <div class="stack-panel" aria-label="Technology stack">
+                <p class="stack-title">Engineering stack</p>
+                <div class="stack-tags">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Dart</span>
+                    <span class="tag">Go</span>
+                    <span class="tag">REST API</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Supabase</span>
+                    <span class="tag">Riverpod</span>
+                    <span class="tag">Dio</span>
+                    <span class="tag">OpenRouter API</span>
+                    <span class="tag">Cloud deployment</span>
+                    <span class="tag">Git-based delivery</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" aria-labelledby="founder-title">
+        <div class="section-header">
+            <div>
+                <p class="section-kicker">Leadership</p>
+                <h2 id="founder-title">Founded by a hands-on software engineer.</h2>
+            </div>
+        </div>
+
+        <div class="founder">
+            <aside class="founder-aside">
+                <p class="founder-name">Anton Kozyrev</p>
+                <p class="founder-role">Founder & Software Developer</p>
+                <ul class="credential-list">
+                    <li>Commercial mobile development experience since 2022.</li>
+                    <li>Flutter, Dart, REST APIs, Firebase, realtime communication, and local storage.</li>
+                    <li>Product ownership experience across architecture, implementation, debugging, and release support.</li>
+                </ul>
+            </aside>
+            <div class="founder-copy">
+                <p>
+                    The company combines practical product management with engineering execution. Its founder has delivered cross-platform mobile applications, integrated client-server systems, worked with API contracts, supported existing codebases, and led mobile architecture decisions as an independent developer on commercial projects.
+                </p>
+                <br>
+                <p>
+                    This background defines AnKo Software Labs: small, focused, technically accountable, and built around real product delivery rather than temporary project activity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-card" id="contact" aria-labelledby="contact-title">
+        <div>
+            <p class="section-kicker">Business contact</p>
+            <h2 id="contact-title">Let’s discuss software products, integrations, and B2B automation.</h2>
+            <p>AnKo Software Labs develops proprietary software products and maintains direct communication for product, partnership, and operational inquiries.</p>
+        </div>
+        <div class="contact-links">
+            <a href="mailto:contact@ankosoftlab.com">contact@ankosoftlab.com</a>
+            <a href="https://tapreply.net" target="_blank" rel="noopener">tapreply.net</a>
+        </div>
+    </section>
+
+    <footer>
+        <span>© 2026 AnKo Software Labs. All rights reserved.</span>
+        <span>Engineered Software · B2B SaaS · AI Automation</span>
+    </footer>
+</main>
 </body>
 </html>
