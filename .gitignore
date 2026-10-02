@@ -1,0 +1,9 @@
+.idea/
+.DS_Store
+node_modules/
+public/
+dist/
+resources/_gen/
+.hugo_build.lock
+.env*
+.tasks/
