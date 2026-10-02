@@ -2,7 +2,7 @@
 title: "Approach"
 layout: "approach"
 seoTitle: "Approach — How we work · AnKo Software Labs"
-description: "How AnKo Software Labs works: discovery, architecture, short iterations with demos, release and support. Direct contact with the engineer; the code is yours."
+description: "How AnKo Software Labs works: discovery, architecture, short iterations with demos, release and support. Direct contact with the engineer."
 kicker: "Approach"
 lead: "A small studio can be very predictable: one person accountable for the result, short feedback loops and no hand-offs between managers and developers."
 processTitle: "Process"

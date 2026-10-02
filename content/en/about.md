@@ -2,7 +2,7 @@
 title: "About"
 layout: "about"
 seoTitle: "About — AnKo Software Labs and Anton Kozyrev"
-description: "AnKo Software Labs is an independent software studio founded by Anton Kozyrev, a Flutter and Go developer. Small by design, focused on products and solid engineering."
+description: "AnKo Software Labs is an independent software studio founded by Anton Kozyrev, a Flutter and Go developer. Small by design, focused on solid engineering."
 kicker: "About"
 lead: "AnKo Software Labs is an independent software studio — small by design, focused on its own products and on careful engineering for clients."
 studio:

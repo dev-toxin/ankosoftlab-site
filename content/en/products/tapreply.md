@@ -2,7 +2,7 @@
 title: "TapReply"
 weight: 10
 seoTitle: "TapReply — AI review replies for local businesses"
-description: "TapReply drafts thoughtful replies to customer reviews for cafés, restaurants, salons and clinics — across platforms and in local languages. In development."
+description: "TapReply drafts replies to customer reviews for cafés, restaurants, salons and clinics — across platforms and in local languages. In development."
 ogImage: "og/tapreply.png"
 lead: "An AI assistant that helps local businesses answer customer reviews — on several platforms, in the customer’s language, with the owner always approving the final reply."
 diagramLabel: "core + adapters"

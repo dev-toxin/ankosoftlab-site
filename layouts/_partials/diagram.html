@@ -2,7 +2,7 @@
 {{- $n := . -}}
 {{- if eq $n "stack" -}}
 <svg class="diagram" viewBox="0 0 420 300" role="img" aria-labelledby="dg-stack-t">
-  <title id="dg-stack-t">Mobile and web clients talk to an API, which talks to a database and AI services</title>
+  <title id="dg-stack-t">{{ T "dgStack" }}</title>
   <path class="d-line" d="M110 78 V128 H210 V150"/>
   <path class="d-line" d="M310 78 V128 H210"/>
   <path class="d-flow" d="M210 196 V226"/>
@@ -23,7 +23,7 @@
 </svg>
 {{- else if eq $n "tapreply" -}}
 <svg class="diagram" viewBox="0 0 420 300" role="img" aria-labelledby="dg-tr-t">
-  <title id="dg-tr-t">TapReply: a core service connected to review platforms through adapters, with a human approving each reply</title>
+  <title id="dg-tr-t">{{ T "dgTapreply" }}</title>
   <path class="d-line" d="M100 60 H150 V130 H170"/>
   <path class="d-line" d="M100 150 H170"/>
   <path class="d-line" d="M100 240 H150 V170 H170"/>
@@ -38,7 +38,7 @@
 </svg>
 {{- else if eq $n "terroir" -}}
 <svg class="diagram" viewBox="0 0 420 300" role="img" aria-labelledby="dg-te-t">
-  <title id="dg-te-t">Terroir: cellar, taste profile and recipes connected around an assistant with memory</title>
+  <title id="dg-te-t">{{ T "dgTerroir" }}</title>
   <path class="d-line" d="M210 72 L210 118"/>
   <path class="d-line" d="M120 236 L172 178"/>
   <path class="d-line" d="M300 236 L248 178"/>

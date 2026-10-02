@@ -1,7 +1,7 @@
 ---
 title: "Products"
 seoTitle: "Products — TapReply and Terroir · AnKo Software Labs"
-description: "Software products developed by AnKo Software Labs: TapReply, an AI assistant for review replies, and Terroir, a personal wine companion. Both in development."
+description: "Products by AnKo Software Labs: TapReply, an AI assistant for review replies, and Terroir, a personal wine companion. Both in development."
 kicker: "Products"
 lead: "Alongside client work, the studio builds its own products. Both are in development; if you’d like to try them early, join the early-access list."
 why:
