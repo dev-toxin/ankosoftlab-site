@@ -43,6 +43,25 @@ Changed:
 - "© 2026 AnKo Software Labs. All rights reserved." → footer with legal owner line and legal pages.
 - "Leadership" section → About page; no team, no offices.
 
+### D7. GitHub Pages switch-over safeguard
+- **Decision:** deploy via GitHub Actions (`.github/workflows/pages.yml`). Order for Anton: **first** Settings → Pages → Source = "GitHub Actions", **then** `git push origin main`. Until the push, the old deployment keeps being served; the first workflow run replaces it.
+- **Why:** after this session the repo root no longer contains `index.html`, so if Pages still serves "Deploy from a branch / root", the live site would show a 404. Switching the source first removes that window. The workflow also has `workflow_dispatch` for a manual re-run.
+- **Alternatives:** committing the built site to `/docs` and serving from `main:/docs` — rejected: build output in Git, easy to forget to rebuild, noisy diffs; it would also need removal later for Cloudflare Pages.
+
+### D8. Mobile menu without JavaScript
+- **Decision:** native Popover API (`popover` + `popovertarget`) for the mobile nav. No JS at all on the site.
+- **Why:** Esc-to-close, light dismiss, top-layer and focus return are built into the browser; it allows a strict CSP with `script-src 'none'`. `aria-expanded` is set automatically by browsers for popover invokers.
+- **Fallback:** in browsers without popover support the `popover` attribute is ignored and the nav is shown inline (still usable).
+- Reveal-on-scroll uses CSS scroll-driven animations (`animation-timeline: view()`) behind `@supports` and `prefers-reduced-motion`.
+
+### D9. No theme toggle
+- **Decision:** dark by default, light via `prefers-color-scheme`; no manual toggle.
+- **Why:** a toggle needs JS (and an inline script to avoid a flash), conflicting with the no-JS / strict-CSP choice. Backlog item.
+
+### D10. OG images and icons
+- Icons generated with macOS `sips` from `assets/brand/anko_logo.jpg` (center crop 1720² → 512/192/180/32, `favicon.ico` 32×32).
+- OG images (1200×630, default + TapReply + Terroir) rendered from small HTML compositions with local headless Chrome (`--screenshot`), stored as static PNGs in `static/og/`. The HTML sources are not committed (one-off); regenerate if texts change (backlog).
+
 ### D6. Commit author
 - `git config user.name` = "Anton Kozyrev" (not "dev-toxin"), email = `214382463+dev-toxin@users.noreply.github.com` (GitHub noreply of dev-toxin, same globally).
 - **Decision:** commits are made with `git -c user.name="dev-toxin" -c user.email="214382463+dev-toxin@users.noreply.github.com" commit …`.
