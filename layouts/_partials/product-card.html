@@ -1,0 +1,19 @@
+{{- /* Context: product page */ -}}
+{{- $p := .Params.product -}}
+<article class="product-card reveal">
+  <div class="product-head">
+    {{ partial "product-logo.html" (dict "page" . "size" 56) }}
+    <div>
+      <h3 class="product-name">{{ $p.name }}</h3>
+      <p class="product-tag">{{ $p.tagline }}</p>
+    </div>
+  </div>
+  <div>{{ partial "status-badge.html" $p }}</div>
+  <p class="product-summary">{{ .Description }}</p>
+  {{- with $p.highlights }}
+  <ul class="feature-list" role="list">
+    {{- range . }}<li>{{ . }}</li>{{ end }}
+  </ul>
+  {{- end }}
+  <a class="card-link" href="{{ .RelPermalink }}">{{ T "learnMore" }}: {{ $p.name }} <span aria-hidden="true">→</span></a>
+</article>

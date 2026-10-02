@@ -1,0 +1,31 @@
+{{- $current := . -}}
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} — {{ T "home" }}">
+      {{ partial "logo-img.html" (dict "size" 36 "class" "brand-mark" "alt" "") }}
+      <span class="brand-text">
+        <span class="brand-name">AnKo Software Labs</span>
+        <span class="brand-sub">Engineered software</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" popovertarget="site-nav" aria-controls="site-nav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <span class="nav-toggle-label">{{ T "menu" }}</span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="{{ T "primaryNav" }}">
+      <ul class="nav-list" role="list">
+        {{- range site.Menus.main }}
+        {{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+        <li><a class="nav-link" href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+      <div class="nav-extra">
+        {{ partial "lang-switch.html" . }}
+        <a class="btn btn-primary btn-sm" href="{{ "contact/" | relLangURL }}">{{ T "startProject" }}</a>
+      </div>
+      <button class="nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">{{ T "closeMenu" }}</button>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,14 @@
+{{- /* Context: dict page, size (56 | 88). No inline styles (strict CSP). */ -}}
+{{- $p := .page.Params.product -}}
+{{- $size := .size | default 56 -}}
+{{- $cls := cond (gt $size 60) "is-lg" "" -}}
+{{- with $p.logo -}}
+  {{- with resources.Get . -}}
+    {{- $a := .Process (printf "resize %dx webp q85" $size) -}}
+    {{- $b := .Process (printf "resize %dx webp q85" (mul $size 2)) -}}
+<img class="product-logo {{ $cls }}" src="{{ $b.RelPermalink }}" srcset="{{ $a.RelPermalink }} 1x, {{ $b.RelPermalink }} 2x" width="{{ $size }}" height="{{ $size }}" alt="{{ $p.name }} logo" loading="lazy" decoding="async">
+  {{- end -}}
+{{- else -}}
+{{- /* TODO(Anton): replace text mark with a real product logo when available */ -}}
+<span class="product-mark {{ $cls }}" aria-hidden="true">{{ substr $p.name 0 1 }}</span>
+{{- end -}}

@@ -1,0 +1,9 @@
+{{- /* Studio logo tile, cropped from assets/brand/anko_logo.jpg. Params: size (CSS px), class, alt, eager */ -}}
+{{- $size := .size | default 36 -}}
+{{- $src := resources.Get "brand/anko_logo.jpg" -}}
+{{- with $src -}}
+{{- $crop := .Process "crop 1720x1720 center" -}}
+{{- $w1 := $crop.Process (printf "resize %dx webp q85" (mul $size 1)) -}}
+{{- $w2 := $crop.Process (printf "resize %dx webp q85" (mul $size 2)) -}}
+<img class="{{ $.class }}" src="{{ $w2.RelPermalink }}" srcset="{{ $w1.RelPermalink }} 1x, {{ $w2.RelPermalink }} 2x" width="{{ $size }}" height="{{ $size }}" alt="{{ $.alt }}"{{ if not $.eager }} decoding="async"{{ end }}>
+{{- end -}}

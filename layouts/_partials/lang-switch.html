@@ -1,0 +1,16 @@
+{{- $page := . -}}
+<ul class="lang-switch" role="list" aria-label="{{ T "languageSwitch" }}">
+  {{- range hugo.Sites }}{{ with .Language }}
+  {{- $lang := .Lang -}}
+  {{- $href := "" -}}
+  {{- range $page.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $href = .RelPermalink }}{{ end }}{{ end }}
+  {{- if not $href }}{{ $href = cond (eq $lang "en") "/" (printf "/%s/" $lang) }}{{ end }}
+  <li>
+    {{- if eq $lang site.Language.Lang }}
+    <span class="lang-link is-current" aria-current="true" lang="{{ $lang }}" title="{{ .Label }}">{{ upper $lang }}</span>
+    {{- else }}
+    <a class="lang-link" href="{{ $href }}" hreflang="{{ $lang }}" lang="{{ $lang }}" title="{{ .Label }}">{{ upper $lang }}</a>
+    {{- end }}
+  </li>
+  {{- end }}{{ end }}
+</ul>

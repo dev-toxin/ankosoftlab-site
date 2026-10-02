@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-head">
+    {{ partial "breadcrumbs.html" . }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  <article class="{{ if .Params.legal }}legal{{ else }}prose{{ end }}">
+    {{- if .Params.legal }}
+    <p class="draft-banner" role="note"><span class="badge badge-early">{{ T "draft" }}</span> {{ T "lastUpdated" }} {{ site.Params.legalUpdated }}</p>
+    {{- end }}
+    {{ .Content }}
+  </article>
+</div>
+{{ end }}

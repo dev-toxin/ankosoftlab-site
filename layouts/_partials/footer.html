@@ -1,0 +1,30 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p class="footer-name">AnKo Software Labs</p>
+      <p class="footer-owner">{{ T "legalOwner" }}</p>
+      <p><a class="footer-mail" href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+    </div>
+    <nav class="footer-nav" aria-label="{{ T "primaryNav" }}">
+      <ul role="list">
+        {{- range site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+    </nav>
+    <nav class="footer-nav" aria-label="{{ T "legalNav" }}">
+      <ul role="list">
+        {{- range site.Menus.legal }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+    </nav>
+    <div class="footer-lang">
+      {{ partial "lang-switch.html" . }}
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {{ now.Year }} AnKo Software Labs · {{ T "legalOwner" }}</p>
+    <p class="mono">Engineered software</p>
+  </div>
+</footer>

@@ -1,0 +1,2 @@
+{{- /* Context: product params dict with .status ("dev" | "early" | "planned") and .statusText */ -}}
+<span class="badge badge-{{ .status | default "dev" }}">{{ .statusText }}</span>

@@ -1,0 +1,47 @@
+{{ define "main" }}
+{{- $p := .Params -}}
+<div class="container">
+  <header class="page-head">
+    {{ partial "breadcrumbs.html" . }}
+    <p class="kicker"><span class="kicker-num">/</span> {{ $p.kicker }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lead">{{ $p.lead }}</p>
+  </header>
+
+  <section aria-labelledby="process-t">
+    <h2 id="process-t" class="visually-hidden">{{ $p.processTitle }}</h2>
+    <ol class="timeline" role="list">
+      {{- range $i, $s := $p.steps }}
+      <li class="timeline-item reveal">
+        <span class="step-num">{{ printf "%02d /" (add $i 1) }}</span>
+        <div>
+          <h3>{{ $s.title }}</h3>
+        </div>
+        <div>
+          <p>{{ $s.text }}</p>
+          {{- with $s.out }}<ul class="chips" role="list">{{ range . }}<li class="chip">{{ . }}</li>{{ end }}</ul>{{ end }}
+        </div>
+      </li>
+      {{- end }}
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="principles-t">
+    <div class="section-head">
+      <div>
+        <p class="kicker"><span class="kicker-num">/</span> {{ $p.principlesKicker }}</p>
+        <h2 id="principles-t">{{ $p.principlesTitle }}</h2>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      {{- range $p.principles }}
+      <div class="principle reveal">
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </div>
+      {{- end }}
+    </div>
+  </section>
+</div>
+{{ partial "cta.html" (dict "title" $p.cta.title "text" $p.cta.text) }}
+{{ end }}

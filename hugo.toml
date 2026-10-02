@@ -1,0 +1,133 @@
+baseURL = "https://www.ankosoftlab.com/"
+title = "AnKo Software Labs"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+disableKinds = ["taxonomy", "term", "rss"]
+enableRobotsTXT = true
+timeZone = "Asia/Tbilisi"
+enableGitInfo = false
+disableHugoGeneratorInject = true
+
+[params]
+  # Public contact address (see docs/DECISIONS.md, D4). Change here only.
+  email = "contact@ankosoftlab.com"
+  tapreplyURL = "https://tapreply.net"
+  terroirURL = "https://terroir-app.com"
+  # TODO(Anton): decide whether to publish the Individual Entrepreneur ID. Leave empty to show a placeholder.
+  ieID = ""
+  legalUpdated = "2026-10-02"
+  ownerName = "Anton Kozyrev"
+  country = "Georgia"
+  ogImage = "og/default.png"
+
+[languages]
+  [languages.en]
+    label = "English"
+    locale = "en"
+    weight = 1
+    contentDir = "content/en"
+    title = "AnKo Software Labs"
+    [languages.en.params]
+      tagline = "Independent software studio"
+
+    [[languages.en.menus.main]]
+      name = "Services"
+      pageRef = "/services"
+      weight = 10
+    [[languages.en.menus.main]]
+      name = "Products"
+      pageRef = "/products"
+      weight = 20
+    [[languages.en.menus.main]]
+      name = "Approach"
+      pageRef = "/approach"
+      weight = 30
+    [[languages.en.menus.main]]
+      name = "About"
+      pageRef = "/about"
+      weight = 40
+    [[languages.en.menus.main]]
+      name = "Contact"
+      pageRef = "/contact"
+      weight = 50
+
+    [[languages.en.menus.legal]]
+      name = "Privacy"
+      pageRef = "/privacy"
+      weight = 10
+    [[languages.en.menus.legal]]
+      name = "Terms"
+      pageRef = "/terms"
+      weight = 20
+    [[languages.en.menus.legal]]
+      name = "Imprint"
+      pageRef = "/imprint"
+      weight = 30
+
+  [languages.ru]
+    label = "Русский"
+    locale = "ru"
+    weight = 2
+    contentDir = "content/ru"
+    title = "AnKo Software Labs"
+    [languages.ru.params]
+      tagline = "Независимая студия разработки"
+
+    [[languages.ru.menus.main]]
+      name = "Услуги"
+      pageRef = "/services"
+      weight = 10
+    [[languages.ru.menus.main]]
+      name = "Продукты"
+      pageRef = "/products"
+      weight = 20
+    [[languages.ru.menus.main]]
+      name = "Подход"
+      pageRef = "/approach"
+      weight = 30
+    [[languages.ru.menus.main]]
+      name = "О студии"
+      pageRef = "/about"
+      weight = 40
+    [[languages.ru.menus.main]]
+      name = "Контакты"
+      pageRef = "/contact"
+      weight = 50
+
+    [[languages.ru.menus.legal]]
+      name = "Конфиденциальность"
+      pageRef = "/privacy"
+      weight = 10
+    [[languages.ru.menus.legal]]
+      name = "Условия"
+      pageRef = "/terms"
+      weight = 20
+    [[languages.ru.menus.legal]]
+      name = "Выходные данные"
+      pageRef = "/imprint"
+      weight = 30
+
+[outputs]
+  home = ["html"]
+  section = ["html"]
+  page = ["html"]
+
+[sitemap]
+  changeFreq = "monthly"
+  priority = 0.5
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.goldmark.parser.attribute]
+  block = true
+
+[imaging]
+  resampleFilter = "lanczos"
+  [imaging.webp]
+    quality = 82
+  [imaging.jpeg]
+    quality = 82
+
+[minify]
+  minifyOutput = true

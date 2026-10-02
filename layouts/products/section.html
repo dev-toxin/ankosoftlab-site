@@ -1,0 +1,28 @@
+{{ define "main" }}
+{{- $p := .Params -}}
+<div class="container">
+  <header class="page-head">
+    {{ partial "breadcrumbs.html" . }}
+    <p class="kicker"><span class="kicker-num">/</span> {{ $p.kicker }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lead">{{ $p.lead }}</p>
+  </header>
+  <div class="grid grid-2">
+    {{- range .Pages.ByWeight }}
+    {{ partial "product-card.html" . }}
+    {{- end }}
+  </div>
+  <section class="section" aria-labelledby="why-t">
+    <div class="split">
+      <div>
+        <p class="kicker"><span class="kicker-num">/</span> {{ $p.why.kicker }}</p>
+        <h2 id="why-t">{{ $p.why.title }}</h2>
+      </div>
+      <div class="prose">
+        {{- range $p.why.paragraphs }}<p>{{ . }}</p>{{ end }}
+      </div>
+    </div>
+  </section>
+</div>
+{{ partial "cta.html" (dict "title" $p.cta.title "text" $p.cta.text "subject" (T "earlyAccessSubject")) }}
+{{ end }}

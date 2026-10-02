@@ -1,0 +1,54 @@
+{{ define "main" }}
+{{- $p := .Params -}}
+<div class="container">
+  <header class="page-head">
+    {{ partial "breadcrumbs.html" . }}
+    <p class="kicker"><span class="kicker-num">/</span> {{ $p.kicker }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lead">{{ $p.lead }}</p>
+    <ul class="toc" role="list" aria-label="{{ T "onThisPage" }}">
+      {{- range $p.items }}<li><a href="#{{ .anchor }}">{{ .title }}</a></li>{{ end }}
+    </ul>
+  </header>
+
+  {{- range $i, $s := $p.items }}
+  <section class="service" id="{{ $s.anchor }}" aria-labelledby="{{ $s.anchor }}-t">
+    <div class="service-aside">
+      <p class="kicker"><span class="kicker-num">{{ printf "%02d /" (add $i 1) }}</span> {{ $s.kicker }}</p>
+      <h2 id="{{ $s.anchor }}-t">{{ $s.title }}</h2>
+      <p>{{ $s.intro }}</p>
+      {{- with $s.diagram }}<div class="hero-panel">{{ partial "diagram.html" . }}</div>{{ end }}
+    </div>
+    <div class="service-body">
+      <div>
+        <h3>{{ $p.labels.get }}</h3>
+        <ul class="feature-list" role="list">{{ range $s.get }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+      <div>
+        <h3>{{ $p.labels.tasks }}</h3>
+        <ul class="feature-list" role="list">{{ range $s.tasks }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+      <div class="full">
+        <h3>{{ $p.labels.tech }}</h3>
+        <ul class="chips" role="list">{{ range $s.tech }}<li class="chip">{{ . }}</li>{{ end }}</ul>
+      </div>
+      <div class="full">
+        <h3>{{ $p.labels.format }}</h3>
+        <p class="muted">{{ $s.format }}</p>
+      </div>
+    </div>
+  </section>
+  {{- end }}
+
+  <section class="service" aria-labelledby="pricing-t">
+    <div class="service-aside">
+      <h2 id="pricing-t">{{ $p.pricing.title }}</h2>
+    </div>
+    <div class="prose">
+      {{/* TODO(Anton): decide whether to show indicative pricing ("from $…"). */}}
+      <p>{{ $p.pricing.text }}</p>
+    </div>
+  </section>
+</div>
+{{ partial "cta.html" (dict "title" $p.cta.title "text" $p.cta.text) }}
+{{ end }}

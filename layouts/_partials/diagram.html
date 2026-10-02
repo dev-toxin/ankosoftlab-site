@@ -1,0 +1,52 @@
+{{- /* Abstract inline SVG schemes. Context: name ("stack" | "tapreply" | "terroir") */ -}}
+{{- $n := . -}}
+{{- if eq $n "stack" -}}
+<svg class="diagram" viewBox="0 0 420 300" role="img" aria-labelledby="dg-stack-t">
+  <title id="dg-stack-t">Mobile and web clients talk to an API, which talks to a database and AI services</title>
+  <path class="d-line" d="M110 78 V128 H210 V150"/>
+  <path class="d-line" d="M310 78 V128 H210"/>
+  <path class="d-flow" d="M210 196 V226"/>
+  <path class="d-line" d="M210 226 H95 V236"/>
+  <path class="d-line" d="M210 226 H325 V236"/>
+  <path class="d-flow" d="M110 78 V128 H210 V150"/>
+  <rect class="d-box" x="40" y="30" width="140" height="48" rx="10"/>
+  <text class="d-label" x="60" y="52">Mobile app</text><text class="d-sub" x="60" y="67">FLUTTER · iOS/ANDROID</text>
+  <rect class="d-box" x="240" y="30" width="140" height="48" rx="10"/>
+  <text class="d-label" x="260" y="52">Web / PWA</text><text class="d-sub" x="260" y="67">BROWSER</text>
+  <rect class="d-box-accent" x="140" y="150" width="140" height="46" rx="10"/>
+  <text class="d-label" x="160" y="171">API</text><text class="d-sub" x="160" y="186">GO · REST · AUTH</text>
+  <rect class="d-box" x="30" y="236" width="130" height="46" rx="10"/>
+  <text class="d-label" x="48" y="257">Database</text><text class="d-sub" x="48" y="272">POSTGRESQL</text>
+  <rect class="d-box" x="260" y="236" width="130" height="46" rx="10"/>
+  <text class="d-label" x="278" y="257">Integrations</text><text class="d-sub" x="278" y="272">3RD-PARTY · AI</text>
+  <circle class="d-dot" cx="210" cy="128" r="3"/><circle class="d-dot" cx="210" cy="226" r="3"/>
+</svg>
+{{- else if eq $n "tapreply" -}}
+<svg class="diagram" viewBox="0 0 420 300" role="img" aria-labelledby="dg-tr-t">
+  <title id="dg-tr-t">TapReply: a core service connected to review platforms through adapters, with a human approving each reply</title>
+  <path class="d-line" d="M100 60 H150 V130 H170"/>
+  <path class="d-line" d="M100 150 H170"/>
+  <path class="d-line" d="M100 240 H150 V170 H170"/>
+  <path class="d-flow" d="M290 150 H330"/>
+  <rect class="d-box" x="10" y="38" width="90" height="44" rx="10"/><text class="d-label" x="24" y="58">Platform A</text><text class="d-sub" x="24" y="72">ADAPTER</text>
+  <rect class="d-box" x="10" y="128" width="90" height="44" rx="10"/><text class="d-label" x="24" y="148">Platform B</text><text class="d-sub" x="24" y="162">ADAPTER</text>
+  <rect class="d-box" x="10" y="218" width="90" height="44" rx="10"/><text class="d-label" x="24" y="238">Platform …</text><text class="d-sub" x="24" y="252">ADAPTER</text>
+  <rect class="d-box-accent" x="170" y="106" width="120" height="88" rx="14"/>
+  <text class="d-label" x="190" y="140">Core</text><text class="d-sub" x="190" y="158">DRAFTS · TONE</text><text class="d-sub" x="190" y="172">LANGUAGE</text>
+  <rect class="d-box" x="330" y="122" width="80" height="56" rx="10"/><text class="d-label" x="342" y="146">Owner</text><text class="d-sub" x="342" y="162">APPROVE</text>
+  <circle class="d-dot" cx="150" cy="130" r="3"/><circle class="d-dot" cx="150" cy="170" r="3"/>
+</svg>
+{{- else if eq $n "terroir" -}}
+<svg class="diagram" viewBox="0 0 420 300" role="img" aria-labelledby="dg-te-t">
+  <title id="dg-te-t">Terroir: cellar, taste profile and recipes connected around an assistant with memory</title>
+  <path class="d-line" d="M210 72 L210 118"/>
+  <path class="d-line" d="M120 236 L172 178"/>
+  <path class="d-line" d="M300 236 L248 178"/>
+  <path class="d-flow" d="M110 228 Q210 120 310 228"/>
+  <rect class="d-box" x="150" y="24" width="120" height="48" rx="10"/><text class="d-label" x="168" y="46">Cellar</text><text class="d-sub" x="168" y="61">YOUR BOTTLES</text>
+  <circle class="d-box-accent" cx="210" cy="150" r="40"/>
+  <text class="d-label" x="181" y="147">Assistant</text><text class="d-sub" x="186" y="162">MEMORY</text>
+  <rect class="d-box" x="30" y="236" width="130" height="48" rx="10"/><text class="d-label" x="48" y="258">Taste profile</text><text class="d-sub" x="48" y="273">PREFERENCES</text>
+  <rect class="d-box" x="260" y="236" width="130" height="48" rx="10"/><text class="d-label" x="278" y="258">Recipes</text><text class="d-sub" x="278" y="273">YOUR DISHES</text>
+</svg>
+{{- end -}}
