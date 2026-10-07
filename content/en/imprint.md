@@ -7,10 +7,10 @@ lead: "Legal notice — who is behind this website."
 ---
 
 <!-- TODO(Anton): legal review -->
-<!-- {{IE_ID — TODO(Anton): подтвердить, публиковать ли}} → set params.ieID in hugo.toml -->
 
 | | |
 |---|---|
+| Operator | Individual Entrepreneur Anton Kozyrev (Georgia), ID 304822565, trading as AnKo Software Labs |
 | Trading name | AnKo Software Labs |
 | Owner | Anton Kozyrev |
 | Legal form | Individual Entrepreneur (sole proprietor) |
@@ -23,4 +23,4 @@ AnKo Software Labs is not a company or a separate legal entity; it is the tradin
 
 **Responsible for content:** Anton Kozyrev.
 
-Postal address and phone number are available on request by email for legal correspondence.
+For legal correspondence, write to [contact@ankosoftlab.com](mailto:contact@ankosoftlab.com).

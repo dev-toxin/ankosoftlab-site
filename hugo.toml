@@ -13,9 +13,9 @@ disableHugoGeneratorInject = true
   email = "contact@ankosoftlab.com"
   tapreplyURL = "https://tapreply.net"
   terroirURL = "https://terroir-app.com"
-  # TODO(Anton): decide whether to publish the Individual Entrepreneur ID. Leave empty to show a placeholder.
-  ieID = ""
-  legalUpdated = "2026-10-02"
+  # Georgian Individual Entrepreneur ID — public in the NAPR registry, published by decision of 2026-10-07.
+  ieID = "304822565"
+  legalUpdated = "2026-10-07"
   ownerName = "Anton Kozyrev"
   country = "Georgia"
   ogImage = "og/default.png"

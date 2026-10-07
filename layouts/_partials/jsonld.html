@@ -8,6 +8,8 @@
       "@type" "Organization"
       "@id" $orgID
       "name" $site.Title
+      "legalName" (T "legalOwner")
+      "identifier" $site.Params.ieID
       "url" "https://www.ankosoftlab.com/"
       "logo" ("images/logo-512.png" | absURL)
       "email" $site.Params.email

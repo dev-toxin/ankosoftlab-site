@@ -35,6 +35,7 @@ business:
     - { k: "Legal form", v: "Individual Entrepreneur (sole proprietor)" }
     - { k: "Owner", v: "Anton Kozyrev" }
     - { k: "Registered in", v: "Georgia" }
+    - { k: "IE ID", v: "304822565" }
 cta:
   title: "Working on something?"
   text: "Write a few lines about it. If it fits the studio, we’ll suggest the next step; if not, we’ll say so honestly."

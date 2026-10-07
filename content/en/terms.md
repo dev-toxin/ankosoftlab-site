@@ -10,7 +10,7 @@ lead: "These terms apply to the use of the website www.ankosoftlab.com. They do 
 
 ## 1. Operator
 
-The website is operated by **Anton Kozyrev, Individual Entrepreneur (Georgia), trading as AnKo Software Labs**. Contact: [contact@ankosoftlab.com](mailto:contact@ankosoftlab.com).
+The website is operated by **Individual Entrepreneur Anton Kozyrev (Georgia), ID 304822565, trading as AnKo Software Labs**. Contact: [contact@ankosoftlab.com](mailto:contact@ankosoftlab.com).
 
 ## 2. Information only
 

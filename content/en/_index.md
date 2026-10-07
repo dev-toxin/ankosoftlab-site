@@ -6,7 +6,7 @@ hero:
   eyebrow: "Independent software studio · Georgia · remote"
   title: "Software, engineered <span class=\"accent\">calmly</span> and precisely."
   lead: "AnKo Software Labs designs and builds mobile apps, web products and backends for clients — and develops its own products. You work directly with the engineer who writes the code."
-  primary: "Start a project"
+  primary: "Get a quote"
   secondary: "See products"
   panel: "typical architecture"
   meta:

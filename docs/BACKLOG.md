@@ -3,7 +3,7 @@
 ## P1 — before / right after the first push
 - [ ] Switch GitHub Pages Source to **GitHub Actions**, then push; verify custom domain + HTTPS (see README).
 - [ ] Legal review of Privacy / Terms / Imprint (EN + RU), then remove “Draft” (`legal: true` banner in `layouts/page.html`) and update `params.legalUpdated`.
-- [ ] Decide on publishing the IE identification number (`params.ieID`).
+- [x] 2026-10-07 — IE identification number published (`params.ieID = "304822565"`), operator wording unified.
 - [ ] Confirm response time and time zone on Contact (EN + RU).
 - [ ] Proof-read About texts (founder bio) — EN and RU.
 - [ ] Run Lighthouse (mobile) on Home, Services, TapReply, Privacy — target ≥ 95 in all categories. Not run in session 1 (no Lighthouse CLI without npm/network).

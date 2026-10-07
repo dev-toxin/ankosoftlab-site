@@ -1,2 +1,2 @@
-{{- /* TODO(Anton): set params.ieID in hugo.toml if you decide to publish the IE identification number. */ -}}
-{{- with site.Params.ieID }}{{ . }}{{ else }}{{ if eq site.Language.Lang "ru" }}предоставляется по запросу{{ else }}available on request{{ end }}{{ end -}}
+{{- /* IE identification number from params.ieID (hugo.toml). Published by decision of 2026-10-07. */ -}}
+{{- site.Params.ieID -}}

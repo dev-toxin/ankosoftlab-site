@@ -10,7 +10,7 @@ lead: "Short version: this website does not use cookies, analytics or tracking, 
 
 ## 1. Who is responsible
 
-This website (www.ankosoftlab.com) is operated by **Anton Kozyrev, Individual Entrepreneur (Georgia), trading as AnKo Software Labs** (“we”, “us”). For any privacy question, contact us at [contact@ankosoftlab.com](mailto:contact@ankosoftlab.com).
+This website (www.ankosoftlab.com) is operated by **Individual Entrepreneur Anton Kozyrev (Georgia), ID 304822565, trading as AnKo Software Labs** (“we”, “us”). For any privacy question, contact us at [contact@ankosoftlab.com](mailto:contact@ankosoftlab.com).
 
 This policy covers the website only. Our products (for example TapReply or Terroir) have their own privacy policies on their own websites.
 
