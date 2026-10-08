@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{- $p := .Params -}}
+<div class="container">
+  <header class="page-head">
+    {{ partial "breadcrumbs.html" . }}
+    <p class="kicker"><span class="kicker-num">/</span> {{ $p.kicker }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lead">{{ $p.lead }}</p>
+    <p class="honesty-note">{{ $p.honesty }}</p>
+  </header>
+  <section class="section section-flush" aria-label="{{ .Title }}">
+    <div class="cases">
+      {{- range $p.cases }}
+      {{ partial "case-card.html" (dict "case" . "labels" $p.labels "full" true) }}
+      {{- end }}
+    </div>
+  </section>
+</div>
+{{ partial "cta.html" (dict "title" $p.cta.title "text" $p.cta.text) }}
+{{ end }}

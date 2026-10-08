@@ -35,6 +35,10 @@ disableHugoGeneratorInject = true
       pageRef = "/services"
       weight = 10
     [[languages.en.menus.main]]
+      name = "Work"
+      pageRef = "/work"
+      weight = 15
+    [[languages.en.menus.main]]
       name = "Products"
       pageRef = "/products"
       weight = 20
@@ -77,6 +81,10 @@ disableHugoGeneratorInject = true
       name = "Услуги"
       pageRef = "/services"
       weight = 10
+    [[languages.ru.menus.main]]
+      name = "Работы"
+      pageRef = "/work"
+      weight = 15
     [[languages.ru.menus.main]]
       name = "Продукты"
       pageRef = "/products"

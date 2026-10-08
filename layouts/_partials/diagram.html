@@ -1,24 +1,48 @@
 {{- /* Abstract inline SVG schemes. Context: name ("stack" | "tapreply" | "terroir") */ -}}
 {{- $n := . -}}
 {{- if eq $n "stack" -}}
-<svg class="diagram" viewBox="0 0 420 300" role="img" aria-labelledby="dg-stack-t">
+{{- /* Live architecture: packets travel along the paths (SMIL-free, CSS offset-path); nodes are focusable
+     and reveal their stack on hover/focus. All motion is off under prefers-reduced-motion. */ -}}
+<svg class="diagram diagram-live" viewBox="0 0 420 300" role="img" aria-labelledby="dg-stack-t dg-stack-d">
   <title id="dg-stack-t">{{ T "dgStack" }}</title>
+  <desc id="dg-stack-d">{{ T "dgStackDesc" }}</desc>
   <path class="d-line" d="M110 78 V128 H210 V150"/>
   <path class="d-line" d="M310 78 V128 H210"/>
-  <path class="d-flow" d="M210 196 V226"/>
-  <path class="d-line" d="M210 226 H95 V236"/>
-  <path class="d-line" d="M210 226 H325 V236"/>
+  <path class="d-line" d="M210 196 V226 H95 V236"/>
+  <path class="d-line" d="M210 196 V226 H325 V236"/>
   <path class="d-flow" d="M110 78 V128 H210 V150"/>
-  <rect class="d-box" x="40" y="30" width="140" height="48" rx="10"/>
-  <text class="d-label" x="60" y="52">Mobile app</text><text class="d-sub" x="60" y="67">FLUTTER · iOS/ANDROID</text>
-  <rect class="d-box" x="240" y="30" width="140" height="48" rx="10"/>
-  <text class="d-label" x="260" y="52">Web / PWA</text><text class="d-sub" x="260" y="67">BROWSER</text>
-  <rect class="d-box-accent" x="140" y="150" width="140" height="46" rx="10"/>
-  <text class="d-label" x="160" y="171">API</text><text class="d-sub" x="160" y="186">GO · REST · AUTH</text>
-  <rect class="d-box" x="30" y="236" width="130" height="46" rx="10"/>
-  <text class="d-label" x="48" y="257">Database</text><text class="d-sub" x="48" y="272">POSTGRESQL</text>
-  <rect class="d-box" x="260" y="236" width="130" height="46" rx="10"/>
-  <text class="d-label" x="278" y="257">Integrations</text><text class="d-sub" x="278" y="272">3RD-PARTY · AI</text>
+  <path class="d-flow d-flow-2" d="M310 78 V128 H210 V150"/>
+  <path class="d-flow d-flow-3" d="M210 196 V226 H95 V236"/>
+  <path class="d-flow d-flow-4" d="M210 196 V226 H325 V236"/>
+  <circle class="d-packet pk-1" r="3.5"/>
+  <circle class="d-packet pk-2" r="3.5"/>
+  <circle class="d-packet pk-3" r="3.5"/>
+  <circle class="d-packet pk-4" r="3.5"/>
+  <g class="d-node" tabindex="0" aria-label="{{ T "dgNodeMobile" }}">
+    <rect class="d-box" x="40" y="30" width="140" height="48" rx="10"/>
+    <text class="d-label" x="60" y="52">Mobile app</text><text class="d-sub" x="60" y="67">FLUTTER · iOS/ANDROID</text>
+    <g class="d-tip" transform="translate(6 84)"><rect width="200" height="24" rx="6"/><text x="10" y="16">Riverpod · GoRouter · Dio</text></g>
+  </g>
+  <g class="d-node" tabindex="0" aria-label="{{ T "dgNodeWeb" }}">
+    <rect class="d-box" x="240" y="30" width="140" height="48" rx="10"/>
+    <text class="d-label" x="260" y="52">Web / PWA</text><text class="d-sub" x="260" y="67">BROWSER</text>
+    <g class="d-tip" transform="translate(214 84)"><rect width="200" height="24" rx="6"/><text x="10" y="16">Astro · Hugo · PWA</text></g>
+  </g>
+  <g class="d-node" tabindex="0" aria-label="{{ T "dgNodeApi" }}">
+    <rect class="d-box-accent" x="140" y="150" width="140" height="46" rx="10"/>
+    <text class="d-label" x="160" y="171">API</text><text class="d-sub" x="160" y="186">GO · REST · AUTH</text>
+    <g class="d-tip" transform="translate(130 116)"><rect width="160" height="24" rx="6"/><text x="10" y="16">Go · net/http · tests</text></g>
+  </g>
+  <g class="d-node" tabindex="0" aria-label="{{ T "dgNodeDb" }}">
+    <rect class="d-box" x="30" y="236" width="130" height="46" rx="10"/>
+    <text class="d-label" x="48" y="257">Database</text><text class="d-sub" x="48" y="272">POSTGRESQL</text>
+    <g class="d-tip" transform="translate(10 204)"><rect width="170" height="24" rx="6"/><text x="10" y="16">PostgreSQL · SQLite</text></g>
+  </g>
+  <g class="d-node" tabindex="0" aria-label="{{ T "dgNodeAi" }}">
+    <rect class="d-box" x="260" y="236" width="130" height="46" rx="10"/>
+    <text class="d-label" x="278" y="257">Integrations</text><text class="d-sub" x="278" y="272">3RD-PARTY · AI</text>
+    <g class="d-tip" transform="translate(226 204)"><rect width="188" height="24" rx="6"/><text x="10" y="16">LLM API · budget · cache</text></g>
+  </g>
   <circle class="d-dot" cx="210" cy="128" r="3"/><circle class="d-dot" cx="210" cy="226" r="3"/>
 </svg>
 {{- else if eq $n "tapreply" -}}

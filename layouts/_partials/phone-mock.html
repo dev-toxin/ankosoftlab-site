@@ -1,0 +1,27 @@
+{{- /* Abstract phone mockup, pure CSS. Context: kind ("feed" | "list" | "chat" | "map"). Decorative only. */ -}}
+{{- $k := . -}}
+<div class="phone phone-{{ $k }}" aria-hidden="true">
+  <div class="phone-notch"></div>
+  <div class="phone-screen">
+    <div class="ph-bar"><i></i><i class="w40"></i></div>
+    {{- if eq $k "feed" }}
+    <div class="ph-video"><span class="ph-play"></span></div>
+    <div class="ph-row"><i class="ph-dot"></i><i class="w60"></i></div>
+    <div class="ph-actions"><i></i><i></i><i></i><b>+12</b></div>
+    {{- else if eq $k "list" }}
+    {{- range seq 4 }}
+    <div class="ph-item"><i class="ph-dot"></i><span><i class="w70"></i><i class="w40 sub"></i></span><b></b></div>
+    {{- end }}
+    {{- else if eq $k "chat" }}
+    <div class="ph-msg in"><i class="w70"></i><i class="w40"></i></div>
+    <div class="ph-msg out"><i class="w60"></i></div>
+    <div class="ph-msg in"><i class="w50"></i></div>
+    <div class="ph-msg out"><i class="w70"></i><i class="w30"></i></div>
+    <div class="ph-input"><i class="w60"></i><b></b></div>
+    {{- else }}
+    <div class="ph-map"><span class="pin p1"></span><span class="pin p2"></span><span class="pin p3"></span></div>
+    <div class="ph-item"><i class="ph-dot"></i><span><i class="w70"></i><i class="w40 sub"></i></span><b></b></div>
+    {{- end }}
+    <div class="ph-tabs"><i></i><i></i><i></i><i></i></div>
+  </div>
+</div>

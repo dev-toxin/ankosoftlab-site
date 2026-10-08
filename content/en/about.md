@@ -17,6 +17,7 @@ founder:
   name: "Anton Kozyrev"
   role: "Founder & software engineer"
   photoAlt: "Photo placeholder for Anton Kozyrev"
+  photoSoon: "photo coming soon"
   paragraphs:
     - "Anton has been developing commercial mobile applications since 2022, mostly with Flutter and Dart. His work covers app architecture, integrations with client-server systems, realtime features and local storage, as well as supporting and extending existing codebases."
     - "On the server side he works with Go, REST APIs, PostgreSQL / Supabase and Firebase, and handles releases from build to store publication."

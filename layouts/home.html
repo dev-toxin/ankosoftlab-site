@@ -22,6 +22,13 @@
       <li><span class="mono">{{ .k }}</span><strong>{{ .v }}</strong></li>
       {{- end }}
     </ul>
+    {{- with $p.stats }}
+    <ul class="stats" role="list" aria-label="{{ .label }}">
+      {{- range .items }}
+      <li><strong class="stat-v">{{ .v }}</strong><span class="stat-k">{{ .k }}</span></li>
+      {{- end }}
+    </ul>
+    {{- end }}
   </div>
 </section>
 
@@ -47,11 +54,31 @@
   </div>
 </section>
 
+{{- with site.GetPage "/work" }}
+{{- $w := .Params }}
+<section class="section" aria-labelledby="work-title">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="kicker"><span class="kicker-num">02 /</span> {{ $p.work.kicker }}</p>
+        <h2 id="work-title">{{ $p.work.title }}</h2>
+      </div>
+      <p class="section-note">{{ $p.work.note }} <a href="{{ .RelPermalink }}">{{ $p.work.link }}</a></p>
+    </div>
+    <div class="cases cases-home">
+      {{- range first 3 $w.cases }}
+      {{ partial "case-card.html" (dict "case" . "labels" $w.labels "full" false) }}
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
 <section class="section" aria-labelledby="products-title">
   <div class="container">
     <div class="section-head">
       <div>
-        <p class="kicker"><span class="kicker-num">02 /</span> {{ $p.products.kicker }}</p>
+        <p class="kicker"><span class="kicker-num">03 /</span> {{ $p.products.kicker }}</p>
         <h2 id="products-title">{{ $p.products.title }}</h2>
       </div>
       <p class="section-note">{{ $p.products.note }}</p>
@@ -70,7 +97,7 @@
   <div class="container">
     <div class="section-head">
       <div>
-        <p class="kicker"><span class="kicker-num">03 /</span> {{ $p.process.kicker }}</p>
+        <p class="kicker"><span class="kicker-num">04 /</span> {{ $p.process.kicker }}</p>
         <h2 id="how-title">{{ $p.process.title }}</h2>
       </div>
       <p class="section-note">{{ $p.process.note }} <a href="{{ "approach/" | relLangURL }}">{{ $p.process.link }}</a></p>
@@ -87,11 +114,34 @@
   </div>
 </section>
 
+{{- with $p.notes }}
+<section class="section" aria-labelledby="notes-title">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="kicker"><span class="kicker-num">05 /</span> {{ .kicker }}</p>
+        <h2 id="notes-title">{{ .title }}</h2>
+      </div>
+      <p class="section-note">{{ .note }}</p>
+    </div>
+    <div class="grid grid-3">
+      {{- range $i, $n := .items }}
+      <article class="note reveal">
+        <p class="note-num mono">{{ printf "note %02d" (add $i 1) }}</p>
+        <h3>{{ $n.title }}</h3>
+        <p>{{ $n.text }}</p>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
 <section class="section" aria-labelledby="stack-title">
   <div class="container">
     <div class="section-head">
       <div>
-        <p class="kicker"><span class="kicker-num">04 /</span> {{ $p.stack.kicker }}</p>
+        <p class="kicker"><span class="kicker-num">06 /</span> {{ $p.stack.kicker }}</p>
         <h2 id="stack-title">{{ $p.stack.title }}</h2>
       </div>
       <p class="section-note">{{ $p.stack.note }}</p>

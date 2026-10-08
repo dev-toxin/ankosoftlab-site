@@ -21,10 +21,11 @@
   <section class="section split" aria-labelledby="founder-t">
     <div>
       <p class="kicker"><span class="kicker-num">02 /</span> {{ $p.founder.kicker }}</p>
-      {{/* TODO(Anton): add a real portrait photo (assets/images/anton.jpg) and replace this placeholder. */}}
-      <div class="portrait" role="img" aria-label="{{ $p.founder.photoAlt }}">
-        <div><div class="portrait-initials" aria-hidden="true">AK</div></div>
-      </div>
+      {{/* TODO: photo — add a real portrait of Anton (assets/images/anton.jpg, 4:5) and replace this placeholder. */}}
+      <figure class="portrait" role="img" aria-label="{{ $p.founder.photoAlt }}">
+        <span class="portrait-figure" aria-hidden="true">{{ partial "avatar-placeholder.html" . }}</span>
+        <figcaption class="portrait-cap mono">{{ $p.founder.photoSoon }}</figcaption>
+      </figure>
     </div>
     <div>
       <h2 id="founder-t">{{ $p.founder.name }}</h2>

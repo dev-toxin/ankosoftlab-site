@@ -15,7 +15,9 @@ from urllib.parse import urlparse, unquote
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "public")
 ROOT = os.path.abspath(ROOT)
-ALLOWED_HOSTS = {"www.ankosoftlab.com", "tapreply.net", "terroir-app.com", "schema.org"}
+ALLOWED_HOSTS = {"www.ankosoftlab.com", "tapreply.net", "terroir-app.com", "schema.org",
+                 # /work/ case links (public store and project pages), added 2026-10-08
+                 "apps.apple.com", "zhabby.info", "teleport.run", "jobline.one"}
 SKIP_DIRS = {"_t"}
 
 

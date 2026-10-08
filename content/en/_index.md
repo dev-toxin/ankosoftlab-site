@@ -14,6 +14,26 @@ hero:
     - { k: "Backend", v: "Go · REST · PostgreSQL" }
     - { k: "Products", v: "TapReply · Terroir" }
     - { k: "Contact", v: "Direct, engineer-to-client" }
+stats:
+  label: "Studio in numbers"
+  items:
+    - { v: "4.5+ years", k: "commercial Flutter development" }
+    - { v: "10 apps", k: "built or co-built, from first commit to legacy" }
+    - { v: "2 products", k: "of our own in development" }
+    - { v: "Flutter · Go · LLM", k: "one engineer across the stack" }
+work:
+  kicker: "Selected work"
+  title: "Apps that already ship."
+  note: "Built as a Flutter engineer inside client and employer teams. Roles stated honestly; NDA work without names."
+  link: "All work →"
+notes:
+  kicker: "Engineering notes"
+  title: "How decisions get made."
+  note: "Short principles from real projects, not slogans."
+  items:
+    - { title: "Contracts before code", text: "Endpoints, request and response models, statuses and errors are agreed with the backend before screens are built. It removes most late surprises." }
+    - { title: "Legacy without a freeze", text: "Existing apps are refactored step by step while features keep shipping — the way a native Android app was moved to Flutter." }
+    - { title: "LLM features with a budget", text: "Every AI feature gets a hard cost limit, a cache and automatic checks, and a person approves what reaches users." }
 services:
   kicker: "What we do"
   title: "Focused engineering for products that need to ship."
