@@ -1033,6 +1033,67 @@ a.lang-link:hover { color: var(--text); }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
 
+/* ---------- Hero background prototypes (/bg-a/, /bg-b/) ---------- */
+:root {
+  --hero-img: url("/img/hero/a-dark.webp");
+  --wave-1: rgba(34, 211, 238, 0.045);
+  --wave-2: rgba(34, 211, 238, 0.07);
+  --wave-3: rgba(34, 211, 238, 0.05);
+  --wave-edge: rgba(34, 211, 238, 0.35);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --hero-img: url("/img/hero/a-light.webp");
+    --wave-1: rgba(14, 116, 144, 0.05);
+    --wave-2: rgba(14, 116, 144, 0.08);
+    --wave-3: rgba(14, 116, 144, 0.06);
+    --wave-edge: rgba(255, 255, 255, 0.95);
+  }
+}
+.hero-bg-a, .hero-bg-b { overflow: clip; isolation: isolate; }
+.hero-bg-a > .container, .hero-bg-b > .container { position: relative; z-index: 1; }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+  mask-image: linear-gradient(to bottom, #000 70%, transparent);
+}
+div.hero-bg {
+  inset: -3%;
+  width: auto;
+  height: auto;
+  background: var(--hero-img) right bottom / cover no-repeat;
+  opacity: 0.9;
+}
+.hero-waves .w { stroke: var(--wave-edge); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.hero-waves .w1 { fill: var(--wave-1); }
+.hero-waves .w2 { fill: var(--wave-2); }
+.hero-waves .w3 { fill: var(--wave-3); stroke-opacity: 0.6; }
+
+@media (prefers-reduced-motion: no-preference) {
+  div.hero-bg { animation: hero-drift 32s ease-in-out infinite alternate; }
+  .hero-waves .w1 { animation: wave-a 34s ease-in-out infinite alternate; }
+  .hero-waves .w2 { animation: wave-b 26s ease-in-out infinite alternate; }
+  .hero-waves .w3 { animation: wave-a 38s ease-in-out -12s infinite alternate-reverse; }
+}
+@keyframes hero-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); opacity: 0.9; }
+  to { transform: translate3d(-1.2%, 0.8%, 0) scale(1.04); opacity: 1; }
+}
+@keyframes wave-a {
+  from { transform: translate(0, 0); opacity: 1; }
+  to { transform: translate(-36px, 10px); opacity: 0.75; }
+}
+@keyframes wave-b {
+  from { transform: translate(0, 0); opacity: 0.85; }
+  to { transform: translate(28px, -8px); opacity: 1; }
+}
+
 /* ---------- Print (legal pages) ---------- */
 @media print {
   :root { --bg: #fff; --text: #000; --muted: #222; --muted-2: #444; --border: #ccc; --border-soft: #ddd; }
