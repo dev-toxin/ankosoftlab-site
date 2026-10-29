@@ -86,11 +86,8 @@ body {
   background-color: var(--bg);
   background-image:
     radial-gradient(900px 500px at 10% -10%, var(--glow-1), transparent 60%),
-    radial-gradient(700px 420px at 95% 5%, var(--glow-2), transparent 60%),
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: auto, auto, 32px 32px, 32px 32px;
-  background-repeat: no-repeat, no-repeat, repeat, repeat;
+    radial-gradient(700px 420px at 95% 5%, var(--glow-2), transparent 60%);
+  background-repeat: no-repeat;
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 1.0625rem; /* 17px */
