@@ -2,9 +2,12 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} — {{ T "home" }}">
-      {{ partial "logo-img.html" (dict "size" 36 "class" "brand-mark" "alt" "") }}
+      <picture class="brand-mark">
+        <source srcset="{{ "brand/anko-wordmark-dark.png" | relURL }}" media="(prefers-color-scheme: dark)">
+        <img src="{{ "brand/anko-wordmark-light.png" | relURL }}" width="104" height="35" alt="AnKo">
+      </picture>
       <span class="brand-text">
-        <span class="brand-name">AnKo Software Labs</span>
+        <span class="brand-name">Software Labs</span>
         <span class="brand-sub">Engineered software</span>
       </span>
     </a>
