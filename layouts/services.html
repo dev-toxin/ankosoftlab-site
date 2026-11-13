@@ -3,50 +3,45 @@
 <div class="container">
   <header class="page-head">
     {{ partial "breadcrumbs.html" . }}
-    <p class="kicker">{{ $p.kicker }}</p>
     <h1>{{ .Title }}</h1>
     <p class="lead">{{ $p.lead }}</p>
-    <ul class="toc" role="list" aria-label="{{ T "onThisPage" }}">
+    <ul class="toc-b" role="list" aria-label="{{ T "onThisPage" }}">
       {{- range $p.items }}<li><a href="#{{ .anchor }}">{{ .title }}</a></li>{{ end }}
     </ul>
   </header>
 
   {{- range $i, $s := $p.items }}
-  <section class="service" id="{{ $s.anchor }}" aria-labelledby="{{ $s.anchor }}-t">
-    <div class="service-aside">
-      <p class="kicker">{{ $s.kicker }}</p>
+  <section class="section-b split-b" id="{{ $s.anchor }}" aria-labelledby="{{ $s.anchor }}-t">
+    <div class="split-b-head">
       <h2 id="{{ $s.anchor }}-t">{{ $s.title }}</h2>
-      <p>{{ $s.intro }}</p>
-      {{- with $s.diagram }}<div class="hero-panel">{{ partial "diagram.html" . }}</div>{{ end }}
+      <p class="section-note">{{ $s.intro }}</p>
     </div>
-    <div class="service-body">
+    <div class="detail-b">
+      {{- with $s.get }}
       <div>
         <h3>{{ $p.labels.get }}</h3>
-        <ul class="feature-list" role="list">{{ range $s.get }}<li>{{ . }}</li>{{ end }}</ul>
+        <ul class="ruled-list" role="list">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
       </div>
+      {{- end }}
+      {{- with $s.tasks }}
       <div>
         <h3>{{ $p.labels.tasks }}</h3>
-        <ul class="feature-list" role="list">{{ range $s.tasks }}<li>{{ . }}</li>{{ end }}</ul>
+        <ul class="ruled-list" role="list">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
       </div>
-      <div class="full">
-        <h3>{{ $p.labels.tech }}</h3>
-        <ul class="chips" role="list">{{ range $s.tech }}<li class="chip">{{ . }}</li>{{ end }}</ul>
-      </div>
-      <div class="full">
-        <h3>{{ $p.labels.format }}</h3>
-        <p class="muted">{{ $s.format }}</p>
-      </div>
+      {{- end }}
+      <p class="detail-tech"><span>{{ $p.labels.tech }}:</span> {{ delimit $s.tech ", " }}</p>
+      <p class="detail-format"><span>{{ $p.labels.format }}:</span> {{ $s.format }}</p>
     </div>
   </section>
   {{- end }}
 
-  <section class="service" aria-labelledby="pricing-t">
-    <div class="service-aside">
+  <section class="section-b section-terms split-b" aria-labelledby="pricing-t">
+    <div class="split-b-head">
       <h2 id="pricing-t">{{ $p.pricing.title }}</h2>
     </div>
-    <div class="prose">
-      {{/* TODO(Anton): decide whether to show indicative pricing ("from $…"). */}}
-      <p>{{ $p.pricing.text }}</p>
+    <div>
+      <p class="section-note">{{ $p.pricing.text }}</p>
+      <p class="terms">{{ $p.pricing.terms }}</p>
     </div>
   </section>
 </div>

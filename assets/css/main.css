@@ -1274,6 +1274,41 @@ body { background-image: none; }
 }
 .kicker-num { display: none; }
 
+/* ---------- Inner pages, version B: ruled lists and a sticky narrow head instead of card grids ---------- */
+.section-b { padding-block: clamp(36px, 5vw, 64px); border-top: 1px solid var(--border); }
+.toc-b { display: flex; flex-wrap: wrap; gap: 0 24px; margin: 28px 0 0; padding: 0; list-style: none; }
+.toc-b a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); text-underline-offset: 4px; }
+.toc-b a:hover { color: var(--text); }
+.detail-b { display: grid; gap: 28px; }
+@media (min-width: 1024px) { .detail-b { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; } }
+.detail-b h3 { margin: 0 0 10px; font-size: 1rem; font-weight: 600; color: var(--muted-2); }
+.detail-b .detail-tech, .detail-b .detail-format { grid-column: 1 / -1; margin: 0; color: var(--muted); }
+.detail-b .detail-tech span, .detail-b .detail-format span { color: var(--text); font-weight: 600; }
+.ruled-list { margin: 0; padding: 0; list-style: none; }
+.ruled-list li { padding: 10px 0; border-top: 1px solid var(--border-soft); }
+.ruled-list li:last-child { border-bottom: 1px solid var(--border-soft); }
+.honesty-b { margin: 18px 0 0; max-width: 60ch; color: var(--muted-2); font-size: 0.95rem; }
+.facts-b { margin: 0; }
+.facts-b div { display: grid; gap: 2px 24px; padding: 12px 0; border-top: 1px solid var(--border-soft); }
+@media (min-width: 640px) { .facts-b div { grid-template-columns: 12rem minmax(0, 1fr); } }
+.facts-b dt { color: var(--muted-2); }
+.facts-b dd { margin: 0; }
+.case-list-b .case-card { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1024px) {
+  .case-list-b .case-card { grid-template-columns: 200px minmax(0, 1fr); gap: 48px; align-items: start; }
+  .case-list-b .case-card:nth-child(even) { grid-template-columns: minmax(0, 1fr) 200px; }
+  .case-list-b .case-card:nth-child(even) .case-visual { order: 2; }
+}
+.case-list-b { display: grid; gap: 0; }
+.case-list-b .case-card { background: none; border: 0; border-top: 1px solid var(--border); border-radius: 0; padding: clamp(28px, 4vw, 48px) 0; box-shadow: none; }
+.case-stack-b { margin: 14px 0 0; color: var(--muted-2); font-size: 0.9rem; }
+.case-links a { display: inline-flex; align-items: center; min-height: 44px; margin-right: 20px; }
+.timeline-b .process-b li { grid-template-columns: 3rem minmax(0, 1fr); }
+.timeline-b .step-out { margin: 6px 0 0; color: var(--muted-2); font-size: 0.9rem; }
+.contact-b .mail-big { display: inline-block; }
+.contact-b .template { white-space: pre-wrap; margin: 0; padding: 16px 0 0; border-top: 1px solid var(--border-soft); color: var(--muted); font-family: var(--font-sans); font-size: 0.95rem; }
+.other-b dt a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+
 /* ---------- Print (legal pages) ---------- */
 @media print {
   :root { --bg: #fff; --text: #000; --muted: #222; --muted-2: #444; --border: #ccc; --border-soft: #ddd; }

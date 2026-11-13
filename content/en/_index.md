@@ -16,7 +16,7 @@ services:
   items:
     - { anchor: "web", title: "Websites and landing pages", text: "Company and product sites, landing pages: several languages, basic SEO setup, domain and hosting.", tech: "Astro, Hugo" }
     - { anchor: "mobile", title: "Mobile apps", text: "One app for iOS and Android: screens from your designs, API integration, push notifications, analytics, App Store and Google Play release.", tech: "Flutter" }
-    - { anchor: "backend", title: "Integrations with accounting systems", text: "Connecting a website, an app or a bot to your accounting system — 1C (Russian ERP) and others: orders, stock, exports, so data is not re-entered by hand. Approach and timeline after reviewing your task.", tech: "REST, HTTP services" }
+    - { anchor: "integrations", title: "Integrations with accounting systems", text: "Connecting a website, an app or a bot to your accounting system — 1C (Russian ERP) and others: orders, stock, exports, so data is not re-entered by hand. Approach and timeline after reviewing your task.", tech: "REST, HTTP services" }
     - { anchor: "ai", title: "Chatbots and AI for business", text: "Telegram bots for requests and bookings, chat assistants, generating and checking texts with language models — with budget limits and answer checks.", tech: "Telegram Bot API, language models" }
     - { anchor: "backend", title: "Backends and APIs", text: "The base for an app, a site or a service: database, API, automated checks and builds.", tech: "Go, PostgreSQL, REST" }
 work:
