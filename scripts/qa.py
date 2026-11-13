@@ -30,6 +30,7 @@ class Page(HTMLParser):
         self.title = ""
         self.desc = None
         self.canonical = None
+        self.noindex = False
         self.ids = set()
         self._in_title = False
         self._in_ld = False
@@ -63,6 +64,8 @@ class Page(HTMLParser):
                     self.assets.append(part.strip().split()[0])
         elif tag == "meta" and a.get("name") == "description":
             self.desc = a.get("content")
+        elif tag == "meta" and a.get("name") == "robots":
+            self.noindex = "noindex" in (a.get("content") or "")
         elif tag == "script":
             if a.get("type") == "application/ld+json":
                 self._in_ld = True
@@ -122,7 +125,8 @@ def main():
             errors.append(f"{rel}: no meta description")
         elif len(p.desc) > 155:
             warns.append(f"{rel}: description {len(p.desc)} chars")
-        if not is404 and not (p.canonical or "").startswith("https://www.ankosoftlab.com/"):
+        # noindex prototypes (/bg-b/, /palette-a/ …) intentionally have no canonical
+        if not is404 and not p.noindex and not (p.canonical or "").startswith("https://www.ankosoftlab.com/"):
             errors.append(f"{rel}: bad canonical {p.canonical}")
         for img in p.imgs:
             for k in ("width", "height", "alt"):

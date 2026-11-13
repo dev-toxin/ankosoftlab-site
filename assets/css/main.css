@@ -1087,6 +1087,17 @@ div.hero-bg {
   to { transform: translate3d(-1.2%, 0.8%, 0) scale(1.04); opacity: 1; }
 }
 @keyframes wave-flow { to { transform: translateX(-1440px); } }
+
+/* Prototype /hero-waves/ (2026-11-13): waves fill the whole first screen, meta and stats move below it. */
+.hero-full {
+  min-height: calc(100svh - 72px);
+  display: grid;
+  align-content: center;
+  padding-block: clamp(48px, 8vw, 96px) clamp(120px, 18vw, 220px);
+}
+/* Waves live in the bottom band only, so the top edge never crosses the lead text. */
+.hero-full .hero-bg { top: auto; height: clamp(150px, 24%, 220px); -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent); }
+.hero-after { padding-block: 0 clamp(32px, 6vw, 72px); }
 @keyframes wave-bob { to { transform: translateY(22px); } }
 
 /* ---------- Print (legal pages) ---------- */
