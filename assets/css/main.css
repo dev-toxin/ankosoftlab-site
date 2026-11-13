@@ -1320,6 +1320,12 @@ body { background-image: none; }
 .product-name-b a, .product-row h3 a, .service-row h3 a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
 .tap-b { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
 .other-b dd .tap-b { display: flex; }
+/* Touch targets ≥ 44 px on phones: footer mail and links, home service and product names. */
+@media (max-width: 899px) {
+  .footer-mail, .footer-nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .footer-nav ul { gap: 0; }
+}
+.footer-bottom .mono { font-family: var(--font-sans); letter-spacing: 0; text-transform: none; }
 
 /* ---------- Print (legal pages) ---------- */
 @media print {
