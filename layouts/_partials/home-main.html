@@ -1,8 +1,6 @@
-{{- $p := .p -}}
-{{- $v := .variant -}}
-{{- $full := eq $v "full" -}}
-<section class="hero{{ if $full }} hero-bg-b hero-full{{ else }}{{ with $v }} hero-bg-{{ . }}{{ end }}{{ end }}">
-  {{- if eq $v "a" }}<div class="hero-bg" aria-hidden="true"></div>{{ else if eq $v "b" }}{{ partial "hero-waves.html" . }}{{ else if $full }}{{ partial "hero-waves-full.html" . }}{{ end }}
+{{- $p := . -}}
+<section class="hero hero-full">
+  {{ partial "hero-waves.html" . }}
   <div class="container hero-grid">
     <div>
       <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>{{ $p.hero.eyebrow }}</p>
@@ -18,10 +16,8 @@
       {{ partial "diagram.html" "stack" }}
     </div>
   </div>
-  {{- if $full }}
 </section>
 <section class="hero-after">
-  {{- end }}
   <div class="container">
     <ul class="hero-meta" role="list">
       {{- range $p.hero.meta }}

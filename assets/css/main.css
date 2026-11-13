@@ -4,15 +4,16 @@
 /* ---------- Tokens ---------- */
 :root {
   color-scheme: dark light;
-  --bg: #050505;
-  --bg-elev: #0a0a0c;
-  --surface: #0d0d0f;
-  --surface-2: #151518;
-  --border: #27272a;
-  --border-soft: rgba(255, 255, 255, 0.08);
-  --text: #fafafa;
-  --muted: #a1a1aa;
-  --muted-2: #8b8b94;
+  /* 2026-11-13: palette A — cyan accent on the portfolio graphite, so both sites read as one family */
+  --bg: #0b0f17;
+  --bg-elev: #0e131d;
+  --surface: #121826;
+  --surface-2: #161d2c;
+  --border: #222b3d;
+  --border-soft: rgba(232, 237, 246, 0.08);
+  --text: #e8edf6;
+  --muted: #c9d2e1;
+  --muted-2: #9aa6ba;
   --accent: #22d3ee;
   --accent-soft: rgba(34, 211, 238, 0.12);
   --accent-ink: #041014;
@@ -25,7 +26,7 @@
   --glow-2: rgba(255, 255, 255, 0.05);
   --card-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
   --shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
-  --header-bg: rgba(5, 5, 5, 0.72);
+  --header-bg: rgba(11, 15, 23, 0.72);
 
   --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
@@ -40,28 +41,28 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #fafaf9;
+    --bg: #f7f8fa;
     --bg-elev: #ffffff;
     --surface: #ffffff;
-    --surface-2: #f4f4f5;
-    --border: #e4e4e7;
-    --border-soft: rgba(10, 10, 11, 0.08);
-    --text: #0a0a0b;
-    --muted: #52525b;
-    --muted-2: #5f5f68;
+    --surface-2: #eef1f5;
+    --border: #dde2ea;
+    --border-soft: rgba(15, 23, 42, 0.08);
+    --text: #0f172a;
+    --muted: #475569;
+    --muted-2: #5b6577;
     --accent: #0e7490;
     --accent-soft: rgba(14, 116, 144, 0.08);
     --accent-ink: #ffffff;
-    --ok: #15803d;
-    --ok-soft: rgba(21, 128, 61, 0.10);
-    --warn: #a16207;
-    --warn-soft: rgba(161, 98, 7, 0.10);
+    --ok: #166534; /* 2026-11-13: AA on --ok-soft badges over the lighter graphite */
+    --ok-soft: rgba(22, 101, 52, 0.10);
+    --warn: #854d0e;
+    --warn-soft: rgba(133, 77, 14, 0.10);
     --grid-line: rgba(10, 10, 11, 0.012); /* 2026-10-08: almost flat — owner disliked the checkered background */
     --glow-1: rgba(14, 116, 144, 0.08);
     --glow-2: rgba(10, 10, 11, 0.03);
     --card-bg: linear-gradient(160deg, #ffffff, #fcfcfc);
     --shadow: 0 20px 50px -30px rgba(10, 10, 11, 0.25);
-    --header-bg: rgba(250, 250, 249, 0.8);
+    --header-bg: rgba(247, 248, 250, 0.8);
   }
 }
 
@@ -1030,9 +1031,10 @@ a.lang-link:hover { color: var(--text); }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
 
-/* ---------- Hero background prototypes (/bg-a/, /bg-b/) ---------- */
+/* ---------- Hero waves (home, 2026-11-13) ----------
+   SVG waves fill the bottom band of the first screen and never cross the text.
+   Motion is transform-only (compositor), off with prefers-reduced-motion. */
 :root {
-  --hero-img: url("/img/hero/a-dark.webp");
   --wave-1: rgba(34, 211, 238, 0.06);
   --wave-2: rgba(34, 211, 238, 0.09);
   --wave-3: rgba(34, 211, 238, 0.07);
@@ -1040,32 +1042,31 @@ a.lang-link:hover { color: var(--text); }
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --hero-img: url("/img/hero/a-light.webp");
     --wave-1: rgba(14, 116, 144, 0.05);
     --wave-2: rgba(14, 116, 144, 0.08);
     --wave-3: rgba(14, 116, 144, 0.06);
     --wave-edge: rgba(255, 255, 255, 0.95);
   }
 }
-.hero-bg-a, .hero-bg-b { overflow: clip; isolation: isolate; }
-.hero-bg-a > .container, .hero-bg-b > .container { position: relative; z-index: 1; }
-.hero-bg {
+.hero-full {
+  overflow: clip;
+  isolation: isolate;
+  min-height: calc(100svh - 72px);
+  display: grid;
+  align-content: center;
+  padding-block: clamp(48px, 8vw, 96px) clamp(120px, 18vw, 220px);
+}
+.hero-full > .container { position: relative; z-index: 1; }
+.hero-waves {
   position: absolute;
-  inset: 0;
+  inset: auto 0 0;
   z-index: 0;
   width: 100%;
-  height: 100%;
+  height: clamp(150px, 24%, 220px);
   max-width: none;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
-  mask-image: linear-gradient(to bottom, #000 70%, transparent);
-}
-div.hero-bg {
-  inset: -3%;
-  width: auto;
-  height: auto;
-  background: var(--hero-img) right bottom / cover no-repeat;
-  opacity: 0.9;
+  -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent);
+  mask-image: linear-gradient(to bottom, #000 75%, transparent);
 }
 .hero-waves .w { stroke: var(--wave-edge); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
 .hero-waves .w1 { fill: var(--wave-1); }
@@ -1073,8 +1074,7 @@ div.hero-bg {
 .hero-waves .w3 { fill: var(--wave-3); stroke-opacity: 0.6; }
 
 @media (prefers-reduced-motion: no-preference) {
-  div.hero-bg { animation: hero-drift 32s ease-in-out infinite alternate; }
-  .hero-waves .wl { animation: wave-flow linear infinite; }
+  .hero-waves .wl { animation: wave-flow linear infinite; will-change: transform; }
   .hero-waves .wl1 { animation-duration: 46s; }
   .hero-waves .wl2 { animation-duration: 32s; animation-direction: reverse; }
   .hero-waves .wl3 { animation-duration: 24s; }
@@ -1082,23 +1082,9 @@ div.hero-bg {
   .hero-waves .w2 { animation-duration: 11s; animation-delay: -4s; }
   .hero-waves .w3 { animation-duration: 7s; animation-delay: -2s; }
 }
-@keyframes hero-drift {
-  from { transform: translate3d(0, 0, 0) scale(1); opacity: 0.9; }
-  to { transform: translate3d(-1.2%, 0.8%, 0) scale(1.04); opacity: 1; }
-}
 @keyframes wave-flow { to { transform: translateX(-1440px); } }
-
-/* Prototype /hero-waves/ (2026-11-13): waves fill the whole first screen, meta and stats move below it. */
-.hero-full {
-  min-height: calc(100svh - 72px);
-  display: grid;
-  align-content: center;
-  padding-block: clamp(48px, 8vw, 96px) clamp(120px, 18vw, 220px);
-}
-/* Waves live in the bottom band only, so the top edge never crosses the lead text. */
-.hero-full .hero-bg { top: auto; height: clamp(150px, 24%, 220px); -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent); }
-.hero-after { padding-block: 0 clamp(32px, 6vw, 72px); }
 @keyframes wave-bob { to { transform: translateY(22px); } }
+.hero-after { padding-block: 0 clamp(32px, 6vw, 72px); }
 
 /* ---------- Print (legal pages) ---------- */
 @media print {

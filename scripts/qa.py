@@ -125,7 +125,7 @@ def main():
             errors.append(f"{rel}: no meta description")
         elif len(p.desc) > 155:
             warns.append(f"{rel}: description {len(p.desc)} chars")
-        # noindex prototypes (/bg-b/, /palette-a/ …) intentionally have no canonical
+        # noindex pages intentionally have no canonical
         if not is404 and not p.noindex and not (p.canonical or "").startswith("https://www.ankosoftlab.com/"):
             errors.append(f"{rel}: bad canonical {p.canonical}")
         for img in p.imgs:

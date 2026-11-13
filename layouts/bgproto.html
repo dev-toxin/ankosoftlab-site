@@ -1,4 +1,0 @@
-{{ define "main" }}
-{{- with .Params.palette }}{{ partial (printf "palette-%s.html" .) . }}{{ end }}
-{{ partial "home-main.html" (dict "p" site.Home.Params "variant" .Params.bgVariant) }}
-{{ end }}
