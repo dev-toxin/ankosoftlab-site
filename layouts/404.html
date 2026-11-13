@@ -4,7 +4,7 @@
 {{- $ru := eq site.Language.Lang "ru" -}}
 <div class="container notfound">
   <p class="notfound-code" aria-hidden="true">404</p>
-  <p class="kicker"><span class="kicker-num">/</span> {{ T "notFoundKicker" }}</p>
+  <p class="kicker">{{ T "notFoundKicker" }}</p>
   <h1>{{ T "notFoundTitle" }}</h1>
   <p class="lead">{{ T "notFoundText" }}</p>
   <ul class="toc" role="list">
@@ -14,12 +14,12 @@
   {{- if not $ru }}
   <div class="notfound-alt" lang="ru">
     <p class="kicker">RU</p>
-    <p class="muted">Такой страницы нет. Возможно, ссылка устарела. <a href="/ru/">Перейти на главную на русском →</a></p>
+    <p class="muted">Такой страницы нет. Возможно, ссылка устарела. <a href="/ru/">Перейти на главную на русском</a></p>
   </div>
   {{- else }}
   <div class="notfound-alt" lang="en">
     <p class="kicker">EN</p>
-    <p class="muted">This page doesn’t exist. <a href="/">Go to the English home page →</a></p>
+    <p class="muted">This page doesn’t exist. <a href="/">Go to the English home page</a></p>
   </div>
   {{- end }}
 </div>

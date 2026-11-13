@@ -3,7 +3,7 @@
 <div class="container">
   <header class="page-head">
     {{ partial "breadcrumbs.html" . }}
-    <p class="kicker"><span class="kicker-num">/</span> {{ $p.kicker }}</p>
+    <p class="kicker">{{ $p.kicker }}</p>
     <h1>{{ .Title }}</h1>
     <p class="lead">{{ $p.lead }}</p>
     <ul class="toc" role="list" aria-label="{{ T "onThisPage" }}">
@@ -14,7 +14,7 @@
   {{- range $i, $s := $p.items }}
   <section class="service" id="{{ $s.anchor }}" aria-labelledby="{{ $s.anchor }}-t">
     <div class="service-aside">
-      <p class="kicker"><span class="kicker-num">{{ printf "%02d /" (add $i 1) }}</span> {{ $s.kicker }}</p>
+      <p class="kicker">{{ $s.kicker }}</p>
       <h2 id="{{ $s.anchor }}-t">{{ $s.title }}</h2>
       <p>{{ $s.intro }}</p>
       {{- with $s.diagram }}<div class="hero-panel">{{ partial "diagram.html" . }}</div>{{ end }}

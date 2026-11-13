@@ -3,7 +3,7 @@
 <div class="container">
   <header class="page-head">
     {{ partial "breadcrumbs.html" . }}
-    <p class="kicker"><span class="kicker-num">/</span> {{ $p.kicker }}</p>
+    <p class="kicker">{{ $p.kicker }}</p>
     <h1>{{ .Title }}</h1>
     <p class="lead">{{ $p.lead }}</p>
   </header>
@@ -12,7 +12,7 @@
     <h2 id="process-t" class="visually-hidden">{{ $p.processTitle }}</h2>
     <ol class="timeline" role="list">
       {{- range $i, $s := $p.steps }}
-      <li class="timeline-item reveal">
+      <li class="timeline-item">
         <span class="step-num">{{ printf "%02d /" (add $i 1) }}</span>
         <div>
           <h3>{{ $s.title }}</h3>
@@ -29,13 +29,13 @@
   <section class="section" aria-labelledby="principles-t">
     <div class="section-head">
       <div>
-        <p class="kicker"><span class="kicker-num">/</span> {{ $p.principlesKicker }}</p>
+        <p class="kicker">{{ $p.principlesKicker }}</p>
         <h2 id="principles-t">{{ $p.principlesTitle }}</h2>
       </div>
     </div>
     <div class="grid grid-2">
       {{- range $p.principles }}
-      <div class="principle reveal">
+      <div class="principle">
         <h3>{{ .title }}</h3>
         <p>{{ .text }}</p>
       </div>

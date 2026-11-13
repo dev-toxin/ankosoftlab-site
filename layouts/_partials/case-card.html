@@ -1,6 +1,6 @@
 {{- /* Context: dict case, labels, full (bool) */ -}}
 {{- $c := .case -}}{{- $l := .labels -}}{{- $full := .full -}}
-<article class="case-card reveal" id="{{ $c.id }}" aria-labelledby="case-{{ $c.id }}-t">
+<article class="case-card" id="{{ $c.id }}" aria-labelledby="case-{{ $c.id }}-t">
   <div class="case-visual">{{ partial "phone-mock.html" $c.mock }}</div>
   <div class="case-body">
     <p class="case-meta mono">

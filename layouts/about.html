@@ -3,14 +3,14 @@
 <div class="container">
   <header class="page-head">
     {{ partial "breadcrumbs.html" . }}
-    <p class="kicker"><span class="kicker-num">/</span> {{ $p.kicker }}</p>
+    <p class="kicker">{{ $p.kicker }}</p>
     <h1>{{ .Title }}</h1>
     <p class="lead">{{ $p.lead }}</p>
   </header>
 
   <section class="split" aria-labelledby="studio-t">
     <div>
-      <p class="kicker"><span class="kicker-num">01 /</span> {{ $p.studio.kicker }}</p>
+      <p class="kicker">{{ $p.studio.kicker }}</p>
       <h2 id="studio-t">{{ $p.studio.title }}</h2>
     </div>
     <div class="prose">
@@ -20,7 +20,7 @@
 
   <section class="section split" aria-labelledby="founder-t">
     <div>
-      <p class="kicker"><span class="kicker-num">02 /</span> {{ $p.founder.kicker }}</p>
+      <p class="kicker">{{ $p.founder.kicker }}</p>
       {{/* TODO: photo — add a real portrait of Anton (assets/images/anton.jpg, 4:5) and replace this placeholder. */}}
       <figure class="portrait" role="img" aria-label="{{ $p.founder.photoAlt }}">
         <span class="portrait-figure" aria-hidden="true">{{ partial "avatar-placeholder.html" . }}</span>
@@ -49,7 +49,7 @@
 
   <section class="section" aria-labelledby="business-t">
     <div class="panel">
-      <p class="kicker"><span class="kicker-num">03 /</span> {{ $p.business.kicker }}</p>
+      <p class="kicker">{{ $p.business.kicker }}</p>
       <h2 id="business-t">{{ $p.business.title }}</h2>
       <dl class="facts">
         {{- range $p.business.facts }}

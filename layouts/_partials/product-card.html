@@ -1,6 +1,6 @@
 {{- /* Context: product page */ -}}
 {{- $p := .Params.product -}}
-<article class="product-card reveal">
+<article class="product-card">
   <div class="product-head">
     {{ partial "product-logo.html" (dict "page" . "size" 56) }}
     <div>
@@ -15,5 +15,5 @@
     {{- range . }}<li>{{ . }}</li>{{ end }}
   </ul>
   {{- end }}
-  <a class="card-link" href="{{ .RelPermalink }}">{{ T "learnMore" }}: {{ $p.name }} <span aria-hidden="true">→</span></a>
+  <a class="card-link" href="{{ .RelPermalink }}">{{ T "learnMore" }}: {{ $p.name }}</a>
 </article>

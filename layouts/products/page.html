@@ -14,13 +14,13 @@
         <h1 class="mt-lg">{{ .Title }}</h1>
         <p class="lead">{{ $p.lead }}</p>
         <div class="actions mt-lg">
-          <a class="btn btn-primary" href="{{ $early | safeURL }}">{{ T "joinEarly" }} <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-primary" href="{{ $early | safeURL }}">{{ T "joinEarly" }}</a>
           <a class="btn btn-ghost" href="{{ $pr.url }}" rel="noopener" target="_blank">{{ T "visitSite" }} {{ $pr.domain }} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       {{- with $pr.diagram }}
       <div class="hero-panel">
-        <div class="hero-panel-head"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>{{ $p.diagramLabel }}</span></div>
+        <div class="hero-panel-head"><span>{{ $p.diagramLabel }}</span></div>
         {{ partial "diagram.html" . }}
       </div>
       {{- end }}
@@ -29,7 +29,7 @@
 
   <section class="section split" aria-labelledby="problem-t">
     <div>
-      <p class="kicker"><span class="kicker-num">01 /</span> {{ $p.problem.kicker }}</p>
+      <p class="kicker">{{ $p.problem.kicker }}</p>
       <h2 id="problem-t">{{ $p.problem.title }}</h2>
     </div>
     <div class="prose">{{ range $p.problem.paragraphs }}<p>{{ . }}</p>{{ end }}</div>
@@ -37,7 +37,7 @@
 
   <section class="section split" aria-labelledby="solution-t">
     <div>
-      <p class="kicker"><span class="kicker-num">02 /</span> {{ $p.solution.kicker }}</p>
+      <p class="kicker">{{ $p.solution.kicker }}</p>
       <h2 id="solution-t">{{ $p.solution.title }}</h2>
     </div>
     <div class="prose">{{ range $p.solution.paragraphs }}<p>{{ . }}</p>{{ end }}</div>
@@ -46,14 +46,14 @@
   <section class="section" aria-labelledby="features-t">
     <div class="section-head">
       <div>
-        <p class="kicker"><span class="kicker-num">03 /</span> {{ $p.features.kicker }}</p>
+        <p class="kicker">{{ $p.features.kicker }}</p>
         <h2 id="features-t">{{ $p.features.title }}</h2>
       </div>
       <p class="section-note">{{ $p.features.note }}</p>
     </div>
     <div class="grid grid-3">
       {{- range $p.features.items }}
-      <div class="card reveal">
+      <div class="card">
         <span>{{ if .planned }}<span class="badge badge-planned">{{ T "planned" }}</span>{{ else }}<span class="badge badge-dev">{{ $p.features.coreLabel }}</span>{{ end }}</span>
         <h3>{{ .title }}</h3>
         <p>{{ .text }}</p>
@@ -64,11 +64,11 @@
 
   <section class="section" aria-labelledby="status-t">
     <div class="panel">
-      <p class="kicker"><span class="kicker-num">04 /</span> {{ T "status" }}</p>
+      <p class="kicker">{{ T "status" }}</p>
       <h2 id="status-t">{{ $p.statusBlock.title }}</h2>
       <div class="prose">{{ range $p.statusBlock.paragraphs }}<p>{{ . }}</p>{{ end }}</div>
       <div class="actions">
-        <a class="btn btn-primary" href="{{ $early | safeURL }}">{{ T "joinEarly" }} <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-primary" href="{{ $early | safeURL }}">{{ T "joinEarly" }}</a>
         <a class="btn btn-ghost" href="{{ $pr.url }}" rel="noopener" target="_blank">{{ $pr.domain }} <span aria-hidden="true">↗</span></a>
       </div>
     </div>

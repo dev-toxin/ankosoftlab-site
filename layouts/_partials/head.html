@@ -52,6 +52,7 @@
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/onest-{{ if eq site.Language.Lang "ru" }}cyrillic{{ else }}latin{{ end }}-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 {{- with resources.Get "css/main.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
 {{- end }}

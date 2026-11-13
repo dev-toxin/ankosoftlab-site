@@ -2,163 +2,114 @@
 <section class="hero hero-full">
   {{ partial "hero-waves.html" . }}
   <div class="container hero-grid">
-    <div>
+    <div class="hero-copy">
       <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>{{ $p.hero.eyebrow }}</p>
-      <h1>{{ $p.hero.title | safeHTML }}</h1>
+      <h1>{{ $p.hero.title }}</h1>
       <p class="lead">{{ $p.hero.lead }}</p>
       <div class="actions">
-        <a class="btn btn-primary" href="{{ "contact/" | relLangURL }}">{{ $p.hero.primary }} <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="{{ "products/" | relLangURL }}">{{ $p.hero.secondary }}</a>
+        <a class="btn btn-primary" href="{{ "contact/" | relLangURL }}">{{ $p.hero.primary }}</a>
+        <a class="btn btn-ghost" href="{{ "work/" | relLangURL }}">{{ $p.hero.secondary }}</a>
       </div>
     </div>
-    <div class="hero-panel">
-      <div class="hero-panel-head"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>{{ $p.hero.panel }}</span></div>
+    <figure class="hero-figure">
       {{ partial "diagram.html" "stack" }}
-    </div>
-  </div>
-</section>
-<section class="hero-after">
-  <div class="container">
-    <ul class="hero-meta" role="list">
-      {{- range $p.hero.meta }}
-      <li><span class="mono">{{ .k }}</span><strong>{{ .v }}</strong></li>
-      {{- end }}
-    </ul>
-    {{- with $p.stats }}
-    <ul class="stats" role="list" aria-label="{{ .label }}">
-      {{- range .items }}
-      <li><strong class="stat-v">{{ .v }}</strong><span class="stat-k">{{ .k }}</span></li>
-      {{- end }}
-    </ul>
-    {{- end }}
+      <figcaption>{{ $p.hero.panel }}</figcaption>
+    </figure>
   </div>
 </section>
 
+{{- with $p.who }}
+<section class="who">
+  <div class="container"><p class="who-text">{{ . }}</p></div>
+</section>
+{{- end }}
+
 <section class="section" aria-labelledby="what-title">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="kicker"><span class="kicker-num">01 /</span> {{ $p.services.kicker }}</p>
-        <h2 id="what-title">{{ $p.services.title }}</h2>
-      </div>
+  <div class="container split-b">
+    <div class="split-b-head">
+      <h2 id="what-title">{{ $p.services.title }}</h2>
       <p class="section-note">{{ $p.services.note }}</p>
     </div>
-    <div class="grid grid-4">
+    <ul class="service-list" role="list">
       {{- range $i, $s := $p.services.items }}
-      <article class="card reveal">
-        {{ partial "icon.html" $s.icon }}
-        <h3>{{ $s.title }}</h3>
+      <li class="service-row{{ if eq $i 0 }} service-row-lead{{ end }}">
+        <h3><a href="{{ printf "services/#%s" $s.anchor | relLangURL }}">{{ $s.title }}</a></h3>
         <p>{{ $s.text }}</p>
-        <a class="card-link" href="{{ printf "services/#%s" $s.anchor | relLangURL }}">{{ T "learnMore" }}<span class="visually-hidden">: {{ $s.title }}</span> <span aria-hidden="true">→</span></a>
-      </article>
+        <p class="service-tech">{{ $s.tech }}</p>
+      </li>
       {{- end }}
-    </div>
+    </ul>
   </div>
+</section>
+
+<section class="section section-terms" aria-labelledby="how-title">
+  <div class="container split-b">
+    <div class="split-b-head">
+      <h2 id="how-title">{{ $p.process.title }}</h2>
+      <p class="section-note">{{ $p.process.note }}</p>
+      <p class="terms">{{ $p.process.terms }}</p>
+    </div>
+    <ol class="process-b">
+      {{- range $p.process.steps }}
+      <li><h3>{{ .title }}</h3><p>{{ .text }}</p></li>
+      {{- end }}
+    </ol>
+  </div>
+  <div class="container"><p class="more-link"><a href="{{ "approach/" | relLangURL }}">{{ $p.process.link }}</a></p></div>
 </section>
 
 {{- with site.GetPage "/work" }}
 {{- $w := .Params }}
 <section class="section" aria-labelledby="work-title">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="kicker"><span class="kicker-num">02 /</span> {{ $p.work.kicker }}</p>
-        <h2 id="work-title">{{ $p.work.title }}</h2>
-      </div>
-      <p class="section-note">{{ $p.work.note }} <a href="{{ .RelPermalink }}">{{ $p.work.link }}</a></p>
+    <div class="head-b">
+      <h2 id="work-title">{{ $p.work.title }}</h2>
+      <p class="section-note">{{ $p.work.note }}</p>
     </div>
-    <div class="cases cases-home">
+    <div class="cases cases-b">
       {{- range first 3 $w.cases }}
       {{ partial "case-card.html" (dict "case" . "labels" $w.labels "full" false) }}
       {{- end }}
     </div>
+    <p class="more-link"><a href="{{ .RelPermalink }}">{{ $p.work.link }}</a></p>
   </div>
 </section>
 {{- end }}
 
 <section class="section" aria-labelledby="products-title">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="kicker"><span class="kicker-num">03 /</span> {{ $p.products.kicker }}</p>
-        <h2 id="products-title">{{ $p.products.title }}</h2>
-      </div>
+  <div class="container split-b">
+    <div class="split-b-head">
+      <h2 id="products-title">{{ $p.products.title }}</h2>
       <p class="section-note">{{ $p.products.note }}</p>
     </div>
-    <div class="grid grid-2">
+    <ul class="product-list" role="list">
       {{- with site.GetPage "/products" }}
       {{- range .Pages.ByWeight }}
-      {{ partial "product-card.html" . }}
-      {{- end }}
-      {{- end }}
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="how-title">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="kicker"><span class="kicker-num">04 /</span> {{ $p.process.kicker }}</p>
-        <h2 id="how-title">{{ $p.process.title }}</h2>
-      </div>
-      <p class="section-note">{{ $p.process.note }} <a href="{{ "approach/" | relLangURL }}">{{ $p.process.link }}</a></p>
-    </div>
-    <ol class="steps" role="list">
-      {{- range $i, $s := $p.process.steps }}
-      <li class="step reveal">
-        <span class="step-num">{{ printf "%02d" (add $i 1) }}</span>
-        <h3>{{ $s.title }}</h3>
-        <p>{{ $s.text }}</p>
+      {{- $pp := .Params.product }}
+      <li class="product-row">
+        {{ partial "product-logo.html" (dict "page" . "size" 48) }}
+        <div>
+          <h3><a href="{{ .RelPermalink }}">{{ $pp.name }}</a></h3>
+          <p>{{ $pp.tagline }}. {{ partial "status-badge.html" $pp }}</p>
+        </div>
       </li>
       {{- end }}
-    </ol>
+      {{- end }}
+    </ul>
   </div>
 </section>
 
 {{- with $p.notes }}
 <section class="section" aria-labelledby="notes-title">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="kicker"><span class="kicker-num">05 /</span> {{ .kicker }}</p>
-        <h2 id="notes-title">{{ .title }}</h2>
-      </div>
-      <p class="section-note">{{ .note }}</p>
-    </div>
-    <div class="grid grid-3">
-      {{- range $i, $n := .items }}
-      <article class="note reveal">
-        <p class="note-num mono">{{ printf "note %02d" (add $i 1) }}</p>
-        <h3>{{ $n.title }}</h3>
-        <p>{{ $n.text }}</p>
-      </article>
+    <h2 id="notes-title" class="head-b">{{ .title }}</h2>
+    <dl class="notes-b">
+      {{- range .items }}
+      <div><dt>{{ .title }}</dt><dd>{{ .text }}</dd></div>
       {{- end }}
-    </div>
+    </dl>
   </div>
 </section>
 {{- end }}
-
-<section class="section" aria-labelledby="stack-title">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="kicker"><span class="kicker-num">06 /</span> {{ $p.stack.kicker }}</p>
-        <h2 id="stack-title">{{ $p.stack.title }}</h2>
-      </div>
-      <p class="section-note">{{ $p.stack.note }}</p>
-    </div>
-    <div class="grid grid-3">
-      {{- range $p.stack.groups }}
-      <div class="panel reveal">
-        <p class="kicker">{{ .name }}</p>
-        <ul class="chips" role="list">
-          {{- range .items }}<li class="chip"><span class="chip-dot" aria-hidden="true"></span>{{ . }}</li>{{ end }}
-        </ul>
-      </div>
-      {{- end }}
-    </div>
-  </div>
-</section>
 
 {{ partial "cta.html" (dict "title" $p.cta.title "text" $p.cta.text) }}

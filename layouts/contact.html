@@ -4,7 +4,7 @@
 <div class="container">
   <header class="page-head">
     {{ partial "breadcrumbs.html" . }}
-    <p class="kicker"><span class="kicker-num">/</span> {{ $p.kicker }}</p>
+    <p class="kicker">{{ $p.kicker }}</p>
     <h1>{{ .Title }}</h1>
     <p class="lead">{{ $p.lead }}</p>
   </header>
@@ -16,7 +16,7 @@
       <a class="mail-big" href="{{ $href | safeURL }}">{{ index $parts 0 }}@<wbr>{{ index $parts 1 }}</a>
       <p class="muted">{{ $p.mailNote }}</p>
       <div class="actions">
-        <a class="btn btn-primary" href="{{ $href | safeURL }}">{{ $p.button }} <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-primary" href="{{ $href | safeURL }}">{{ $p.button }}</a>
       </div>
       <dl class="facts">
         {{- range $p.facts }}
@@ -45,7 +45,7 @@
         <h3>{{ .title }}</h3>
         <p>{{ .text }}</p>
         {{- $subj := .subject }}
-        <a class="card-link" href="{{ partial "mailto.html" (dict "subject" $subj) | safeURL }}">{{ .link }} <span aria-hidden="true">→</span></a>
+        <a class="card-link" href="{{ partial "mailto.html" (dict "subject" $subj) | safeURL }}">{{ .link }}</a>
       </div>
       {{- end }}
     </div>
