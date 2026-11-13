@@ -15,7 +15,7 @@ steps:
     out: ["Architecture notes", "API contract", "Plan of iterations"]
   - title: "Iterative delivery"
     text: "Work ships in short iterations. After each one you get a demo or an installable build and can change priorities based on what you see."
-    out: ["Demos", "Test builds", "Changelog"]
+    out: ["Demos", "Test builds", "Change log"]
   - title: "Release & support"
     text: "Publication to the stores or the web, attention to the first weeks in production, and maintenance or further development if you need it."
     out: ["Store release", "Monitoring", "Handover docs"]
@@ -31,9 +31,9 @@ principles:
   - title: "Transparent estimates"
     text: "Estimates come with assumptions and risks spelled out. If scope changes, the estimate is updated before work continues."
   - title: "Realistic commitments"
-    text: "The studio is small on purpose. We take on only as much work as can be done well."
+    text: "The studio is small on purpose. I take on only as much work as I can do well."
   - title: "Mainstream technology"
-    text: "Well-known tools make the product easier to maintain and to hand over to another team later."
+    text: "Well-known tools make the product easier to maintain and to hand over to another developer later."
 cta:
   title: "Let’s start with discovery."
   text: "Tell us about the product and the timeline. The first conversation is about understanding the problem."

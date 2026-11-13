@@ -3,24 +3,31 @@
 <div class="container">
   <header class="page-head">
     {{ partial "breadcrumbs.html" . }}
-    <p class="kicker">{{ $p.kicker }}</p>
     <h1>{{ .Title }}</h1>
     <p class="lead">{{ $p.lead }}</p>
   </header>
-  <div class="grid grid-2">
+  <ul class="product-list product-list-b" role="list">
     {{- range .Pages.ByWeight }}
-    {{ partial "product-card.html" . }}
-    {{- end }}
-  </div>
-  <section class="section" aria-labelledby="why-t">
-    <div class="split">
+    {{- $pp := .Params.product }}
+    <li class="product-row product-row-b">
+      {{ partial "product-logo.html" (dict "page" . "size" 56) }}
       <div>
-        <p class="kicker">{{ $p.why.kicker }}</p>
-        <h2 id="why-t">{{ $p.why.title }}</h2>
+        <h2 class="product-name-b"><a href="{{ .RelPermalink }}">{{ $pp.name }}</a></h2>
+        <p>{{ $pp.tagline }}. {{ partial "status-badge.html" $pp }}</p>
+        <p>{{ .Description }}</p>
+        {{- with $pp.highlights }}
+        <ul class="ruled-list ruled-list-tight" role="list">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+        {{- end }}
       </div>
-      <div class="prose">
-        {{- range $p.why.paragraphs }}<p>{{ . }}</p>{{ end }}
-      </div>
+    </li>
+    {{- end }}
+  </ul>
+  <section class="section-b split-b" aria-labelledby="why-t">
+    <div class="split-b-head">
+      <h2 id="why-t">{{ $p.why.title }}</h2>
+    </div>
+    <div class="prose">
+      {{- range $p.why.paragraphs }}<p>{{ . }}</p>{{ end }}
     </div>
   </section>
 </div>

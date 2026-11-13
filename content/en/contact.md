@@ -8,14 +8,13 @@ lead: "Email is the best way to reach the studio. Your message goes directly to 
 mailNote: "Clicking the address opens your mail app with a short template."
 button: "Write an email"
 facts:
-  # TODO(Anton): confirm typical response time and the time zone to publish.
   - { k: "Response", v: "Usually within a few working days" }
-  - { k: "Time zone", v: "Remote, flexible hours" }
+  - { k: "Where", v: "Remote, worldwide" }
   - { k: "Languages", v: "English, Russian" }
 includeTitle: "Helpful to include"
 include:
   - "What you want to build or improve, in a few sentences"
-  - "Project type: new app, existing codebase, web, backend, consulting"
+  - "Task type: website, app, accounting system integration (1C and others), bot, improving an existing product, consulting"
   - "Desired timeline or deadline"
   - "Budget range, if you have one"
   - "Links to designs, the current app or documents, if any"
@@ -23,7 +22,7 @@ templateTitle: "Email template"
 template: |
   Hello,
 
-  Project type: (new app / existing codebase / web / backend / consulting)
+  Task type: (website / mobile app / accounting system integration / bot / improving an existing product / consulting)
   What we want to build:
   Timeline:
   Budget range:
@@ -34,5 +33,5 @@ otherTitle: "Other inquiries"
 other:
   - { kicker: "Products", title: "Early access", text: "Want to try TapReply or Terroir before public release?", link: "Ask for early access", subject: "Early access" }
   - { kicker: "Partnership", title: "Partnerships", text: "Integrations, joint projects or collaboration with other studios.", link: "Discuss a partnership", subject: "Partnership" }
-  - { kicker: "General", title: "Anything else", text: "Questions about the studio, verification requests or legal matters.", link: "Send a message", subject: "General inquiry" }
+  - { kicker: "General", title: "Anything else", text: "Questions about the studio, company details or legal matters.", link: "Send a message", subject: "General inquiry" }
 ---

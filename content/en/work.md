@@ -4,7 +4,7 @@ layout: "work"
 seoTitle: "Selected work · AnKo Software Labs"
 description: "Flutter apps Anton Kozyrev built or co-built: Zhabby, an Android (Java) to Flutter migration, Mealhub and GreenFeed, Q-Working and Jobline."
 kicker: "Work"
-lead: "Mobile apps Anton has built or co-built as a Flutter engineer — inside client and employer teams, before and alongside the studio. Roles are stated as they were; client names under NDA are left out."
+lead: "Mobile apps Anton has built or co-built as a Flutter engineer — inside client and employer teams, before and alongside the studio. Roles are stated as they were; some clients' names are left out by agreement with them."
 honesty: "These projects were done as a developer in other companies’ teams, not as AnKo Software Labs. Store and project pages belong to their owners."
 labels:
   task: "Task"
@@ -13,7 +13,7 @@ labels:
   result: "Result"
   role: "Role"
   all: "All work"
-  nda: "Client name withheld (NDA)"
+  nda: "Client not named"
 cases:
   - id: "zhabby"
     name: "Zhabby"

@@ -3,27 +3,25 @@
 <article class="case-card" id="{{ $c.id }}" aria-labelledby="case-{{ $c.id }}-t">
   <div class="case-visual">{{ partial "phone-mock.html" $c.mock }}</div>
   <div class="case-body">
-    <p class="case-meta mono">
-      {{- if $c.nda }}<span class="case-nda">{{ $l.nda }}</span>{{ else }}{{ $c.client }}{{ end }} · {{ $c.period }}
+    <p class="case-meta">
+      {{- if $c.nda }}{{ $l.nda }}{{ else }}{{ $c.client }}{{ end }} · {{ $c.period }}
     </p>
     <h3 id="case-{{ $c.id }}-t" class="case-name">{{ $c.name }}</h3>
     <p class="case-summary">{{ $c.summary }}</p>
     {{- if $full }}
-    <dl class="case-facts">
+    <dl class="facts-b">
       <div><dt>{{ $l.role }}</dt><dd>{{ $c.role }}</dd></div>
-      <div><dt>{{ $l.did }}</dt><dd><ul class="feature-list" role="list">{{ range $c.did }}<li>{{ . }}</li>{{ end }}</ul></dd></div>
+      <div><dt>{{ $l.did }}</dt><dd><ul class="ruled-list ruled-list-tight" role="list">{{ range $c.did }}<li>{{ . }}</li>{{ end }}</ul></dd></div>
       <div><dt>{{ $l.result }}</dt><dd>{{ $c.result }}</dd></div>
     </dl>
     {{- else }}
-    <p class="case-role"><span class="mono">{{ $l.role }}:</span> {{ $c.role }}</p>
-    <p class="case-result"><span class="case-check" aria-hidden="true">✓</span> {{ $c.result }}</p>
+    <p class="case-role">{{ $l.role }}: {{ $c.role }}</p>
+    <p class="case-result">{{ $c.result }}</p>
     {{- end }}
-    <ul class="chips case-stack" role="list" aria-label="{{ $l.stack }}">
-      {{- range $c.stack }}<li class="chip">{{ . }}</li>{{ end }}
-    </ul>
+    <p class="case-stack-b"><span class="visually-hidden">{{ $l.stack }}: </span>{{ delimit $c.stack ", " }}</p>
     {{- if and $full $c.links }}
     <p class="case-links">
-      {{- range $c.links }}<a href="{{ .url }}" rel="noopener" target="_blank">{{ .label }} <span aria-hidden="true">↗</span></a>{{ end }}
+      {{- range $c.links }}<a href="{{ .url }}" rel="noopener" target="_blank">{{ .label }}</a>{{ end }}
     </p>
     {{- end }}
   </div>

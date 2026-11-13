@@ -21,7 +21,7 @@ services:
     - { anchor: "backend", title: "Backends and APIs", text: "The base for an app, a site or a service: database, API, automated checks and builds.", tech: "Go, PostgreSQL, REST" }
 work:
   title: "Apps that already ship"
-  note: "Built as a Flutter engineer inside client and employer teams. Roles stated honestly; NDA work without names."
+  note: "Built as a Flutter engineer inside client and employer teams. Roles stated honestly; unnamed where the client asked."
   link: "All work"
 process:
   title: "How it works without a price list"

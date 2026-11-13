@@ -2,15 +2,15 @@
 title: "About"
 layout: "about"
 seoTitle: "About — Anton Kozyrev · AnKo Software Labs"
-description: "AnKo Software Labs is an independent software studio founded by Anton Kozyrev, a Flutter and Go developer. Small by design, focused on solid engineering."
+description: "AnKo Software Labs is the studio of Anton Kozyrev: websites, apps and integrations for businesses, plus its own products. Remote, worldwide."
 kicker: "About"
-lead: "AnKo Software Labs is an independent software studio — small by design, focused on its own products and on careful engineering for clients."
+lead: "AnKo Software Labs is the software studio of Anton Kozyrev: development for businesses, plus its own products. Small by design — every task is handled by the person who writes the code."
 studio:
   kicker: "The studio"
   title: "Independent and deliberately small."
   paragraphs:
-    - "The studio works on two things: its own products (TapReply and Terroir) and development projects for clients — mobile apps, web and backend."
-    - "Being small means every project gets direct attention from the person writing the code, and that we only take on work we can do properly."
+    - "Most of the studio's work is development for clients: websites, mobile apps, integrations with accounting systems, bots and backends. Alongside it, the studio builds its own products — TapReply and Terroir."
+    - "Being small means every project gets direct attention from the person writing the code, and that I only take on work I can do properly."
     - "AnKo Software Labs is the trading name of Anton Kozyrev, an individual entrepreneur registered in Georgia."
 founder:
   kicker: "Founder"
@@ -30,7 +30,7 @@ founder:
 business:
   kicker: "Business details"
   title: "Who is behind the site."
-  imprintLink: "Full legal notice →"
+  imprintLink: "Full legal notice"
   facts:
     - { k: "Trading name", v: "AnKo Software Labs" }
     - { k: "Legal form", v: "Individual Entrepreneur (sole proprietor)" }

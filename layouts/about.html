@@ -3,14 +3,12 @@
 <div class="container">
   <header class="page-head">
     {{ partial "breadcrumbs.html" . }}
-    <p class="kicker">{{ $p.kicker }}</p>
     <h1>{{ .Title }}</h1>
     <p class="lead">{{ $p.lead }}</p>
   </header>
 
-  <section class="split" aria-labelledby="studio-t">
-    <div>
-      <p class="kicker">{{ $p.studio.kicker }}</p>
+  <section class="section-b split-b" aria-labelledby="studio-t">
+    <div class="split-b-head">
       <h2 id="studio-t">{{ $p.studio.title }}</h2>
     </div>
     <div class="prose">
@@ -18,46 +16,36 @@
     </div>
   </section>
 
-  <section class="section split" aria-labelledby="founder-t">
-    <div>
-      <p class="kicker">{{ $p.founder.kicker }}</p>
-      {{/* TODO: photo — add a real portrait of Anton (assets/images/anton.jpg, 4:5) and replace this placeholder. */}}
-      <figure class="portrait" role="img" aria-label="{{ $p.founder.photoAlt }}">
-        <span class="portrait-figure" aria-hidden="true">{{ partial "avatar-placeholder.html" . }}</span>
-        <figcaption class="portrait-cap mono">{{ $p.founder.photoSoon }}</figcaption>
-      </figure>
+  <section class="section-b split-b" aria-labelledby="founder-t">
+    <div class="split-b-head">
+      {{/* No photo yet: a «coming soon» placeholder reads as unfinished, so the block stays text-only until a real portrait exists. */}}
+      <h2 id="founder-t">{{ $p.founder.name }}</h2>
+      <p class="section-note">{{ $p.founder.role }}</p>
     </div>
     <div>
-      <h2 id="founder-t">{{ $p.founder.name }}</h2>
-      <p class="lead">{{ $p.founder.role }}</p>
       <div class="prose">
         {{- range $p.founder.paragraphs }}<p>{{ . }}</p>{{ end }}
       </div>
-      <dl class="facts">
+      <dl class="facts-b">
         {{- range $p.founder.facts }}
         <div><dt>{{ .k }}</dt><dd>{{ .v }}</dd></div>
         {{- end }}
       </dl>
-      {{/* TODO(Anton): decide whether to publish GitHub / LinkedIn. Do not invent URLs.
-      <ul class="chips" role="list">
-        <li><a class="chip" href="https://github.com/dev-toxin" rel="noopener">GitHub</a></li>
-        <li><a class="chip" href="TODO(Anton): LinkedIn URL" rel="noopener">LinkedIn</a></li>
-      </ul>
-      */}}
     </div>
   </section>
 
-  <section class="section" aria-labelledby="business-t">
-    <div class="panel">
-      <p class="kicker">{{ $p.business.kicker }}</p>
+  <section class="section-b split-b" aria-labelledby="business-t">
+    <div class="split-b-head">
       <h2 id="business-t">{{ $p.business.title }}</h2>
-      <dl class="facts">
+    </div>
+    <div>
+      <dl class="facts-b">
         {{- range $p.business.facts }}
         <div><dt>{{ .k }}</dt><dd>{{ .v }}</dd></div>
         {{- end }}
-        <div><dt>{{ T "emailUs" }}</dt><dd><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></dd></div>
+        <div><dt>{{ T "emailUs" }}</dt><dd><a class="tap-b" href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></dd></div>
       </dl>
-      <p class="muted"><a href="{{ "imprint/" | relLangURL }}">{{ $p.business.imprintLink }}</a></p>
+      <p class="more-link"><a href="{{ "imprint/" | relLangURL }}">{{ $p.business.imprintLink }}</a></p>
     </div>
   </section>
 </div>

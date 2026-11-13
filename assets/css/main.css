@@ -1299,7 +1299,12 @@ body { background-image: none; }
   .case-list-b .case-card:nth-child(even) { grid-template-columns: minmax(0, 1fr) 200px; }
   .case-list-b .case-card:nth-child(even) .case-visual { order: 2; }
 }
-.case-list-b { display: grid; gap: 0; }
+.case-list-b { display: grid; gap: 0; margin-bottom: clamp(36px, 5vw, 64px); }
+.case-list-b .case-card { scroll-margin-top: 96px; }
+.case-list-b .facts-b { margin: 18px 0 0; }
+.ruled-list-tight li { padding: 6px 0; border-top: 0; }
+.ruled-list-tight li:last-child { border-bottom: 0; }
+.cases-b .case-stack-b, .case-list-b .case-stack-b { margin-bottom: 0; }
 .case-list-b .case-card { background: none; border: 0; border-top: 1px solid var(--border); border-radius: 0; padding: clamp(28px, 4vw, 48px) 0; box-shadow: none; }
 .case-stack-b { margin: 14px 0 0; color: var(--muted-2); font-size: 0.9rem; }
 .case-links a { display: inline-flex; align-items: center; min-height: 44px; margin-right: 20px; }
@@ -1307,7 +1312,14 @@ body { background-image: none; }
 .timeline-b .step-out { margin: 6px 0 0; color: var(--muted-2); font-size: 0.9rem; }
 .contact-b .mail-big { display: inline-block; }
 .contact-b .template { white-space: pre-wrap; margin: 0; padding: 16px 0 0; border-top: 1px solid var(--border-soft); color: var(--muted); font-family: var(--font-sans); font-size: 0.95rem; }
-.other-b dt a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+@media (min-width: 1024px) { .detail-b.detail-b-single { grid-template-columns: minmax(0, 1fr); } }
+.product-list-b { margin-bottom: clamp(36px, 5vw, 64px); }
+.product-row-b { align-items: start; padding: 28px 0; }
+.product-row-b p { margin: 0 0 10px; }
+.product-name-b { margin: 0 0 6px; font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
+.product-name-b a, .product-row h3 a, .service-row h3 a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+.tap-b { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+.other-b dd .tap-b { display: flex; }
 
 /* ---------- Print (legal pages) ---------- */
 @media print {

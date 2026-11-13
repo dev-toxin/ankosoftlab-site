@@ -4,12 +4,11 @@
 <div class="container">
   <header class="page-head">
     {{ partial "breadcrumbs.html" . }}
-    <p class="kicker">{{ $p.kicker }}</p>
     <h1>{{ .Title }}</h1>
     <p class="lead">{{ $p.lead }}</p>
   </header>
 
-  <section class="split" aria-labelledby="write-t">
+  <section class="section-b split-b contact-b" aria-labelledby="write-t">
     <div>
       <h2 id="write-t" class="visually-hidden">{{ T "emailUs" }}</h2>
       {{- $parts := split site.Params.email "@" -}}
@@ -18,37 +17,35 @@
       <div class="actions">
         <a class="btn btn-primary" href="{{ $href | safeURL }}">{{ $p.button }}</a>
       </div>
-      <dl class="facts">
+      <dl class="facts-b">
         {{- range $p.facts }}
         <div><dt>{{ .k }}</dt><dd>{{ .v }}</dd></div>
         {{- end }}
       </dl>
     </div>
-    <div>
-      <div class="panel">
+    <div class="detail-b detail-b-single">
+      <div>
         <h3>{{ $p.includeTitle }}</h3>
-        <ul class="feature-list" role="list">{{ range $p.include }}<li>{{ . }}</li>{{ end }}</ul>
+        <ul class="ruled-list" role="list">{{ range $p.include }}<li>{{ . }}</li>{{ end }}</ul>
       </div>
-<div class="panel mt">
+      <div>
         <h3>{{ $p.templateTitle }}</h3>
         <pre class="template">{{ $p.template }}</pre>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="other-t">
-    <h2 id="other-t" class="visually-hidden">{{ $p.otherTitle }}</h2>
-    <div class="grid grid-3">
+  <section class="section-b" aria-labelledby="other-t">
+    <h2 id="other-t" class="head-b">{{ $p.otherTitle }}</h2>
+    <dl class="notes-b other-b">
       {{- range $p.other }}
-      <div class="card">
-        <span class="card-num">{{ .kicker }}</span>
-        <h3>{{ .title }}</h3>
-        <p>{{ .text }}</p>
-        {{- $subj := .subject }}
-        <a class="card-link" href="{{ partial "mailto.html" (dict "subject" $subj) | safeURL }}">{{ .link }}</a>
+      {{- $subj := .subject }}
+      <div>
+        <dt>{{ .title }}</dt>
+        <dd>{{ .text }} <a class="tap-b" href="{{ partial "mailto.html" (dict "subject" $subj) | safeURL }}">{{ .link }}</a></dd>
       </div>
       {{- end }}
-    </div>
+    </dl>
   </section>
 </div>
 {{ end }}
