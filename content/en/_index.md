@@ -5,7 +5,7 @@ description: "Websites, iOS and Android apps, Telegram bots and accounting integ
 hero:
   eyebrow: "Independent studio · Remote, worldwide"
   title: "Websites, apps and integrations for your business"
-  lead: "I build websites, iOS and Android apps, Telegram bots and integrations with accounting systems — calmly and precisely, from the first call to launch and support. You talk directly to the engineer who writes the code."
+  lead: "I build websites, iOS and Android apps, Telegram bots and integrations with accounting systems — from the first call to launch and support. You talk directly to the engineer who writes the code."
   primary: "Get a quote"
   secondary: "See work"
   panel: "A typical project: the app and the website share one API, with the database and outside services behind it."
