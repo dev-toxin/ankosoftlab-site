@@ -4,7 +4,7 @@ seoTitle: "AnKo Software Labs — Independent software studio"
 description: "Independent software studio building mobile apps, web and Go backends for clients, and its own products: TapReply and Terroir."
 hero:
   eyebrow: "Independent studio · Remote, worldwide"
-  title: "Software, engineered <span class=\"accent\">calmly</span> and precisely."
+  title: "Apps, websites and integrations for your business"
   lead: "AnKo Software Labs designs and builds mobile apps, web products and backends for clients — and develops its own products. You work directly with the engineer who writes the code."
   primary: "Get a quote"
   secondary: "See products"
