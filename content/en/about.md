@@ -1,7 +1,7 @@
 ---
 title: "About"
 layout: "about"
-seoTitle: "About — AnKo Software Labs and Anton Kozyrev"
+seoTitle: "About — Anton Kozyrev · AnKo Software Labs"
 description: "AnKo Software Labs is an independent software studio founded by Anton Kozyrev, a Flutter and Go developer. Small by design, focused on solid engineering."
 kicker: "About"
 lead: "AnKo Software Labs is an independent software studio — small by design, focused on its own products and on careful engineering for clients."

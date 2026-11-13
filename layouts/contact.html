@@ -12,7 +12,8 @@
   <section class="split" aria-labelledby="write-t">
     <div>
       <h2 id="write-t" class="visually-hidden">{{ T "emailUs" }}</h2>
-      <a class="mail-big" href="{{ $href | safeURL }}">{{ site.Params.email }}</a>
+      {{- $parts := split site.Params.email "@" -}}
+      <a class="mail-big" href="{{ $href | safeURL }}">{{ index $parts 0 }}@<wbr>{{ index $parts 1 }}</a>
       <p class="muted">{{ $p.mailNote }}</p>
       <div class="actions">
         <a class="btn btn-primary" href="{{ $href | safeURL }}">{{ $p.button }} <span class="arrow" aria-hidden="true">→</span></a>

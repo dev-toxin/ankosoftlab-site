@@ -1,7 +1,7 @@
 ---
 title: "Selected work"
 layout: "work"
-seoTitle: "Selected work — AnKo Software Labs"
+seoTitle: "Selected work · AnKo Software Labs"
 description: "Flutter apps Anton Kozyrev built or co-built: Zhabby, an Android (Java) to Flutter migration, Mealhub and GreenFeed, Q-Working and Jobline."
 kicker: "Work"
 lead: "Mobile apps Anton has built or co-built as a Flutter engineer — inside client and employer teams, before and alongside the studio. Roles are stated as they were; client names under NDA are left out."

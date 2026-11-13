@@ -76,6 +76,8 @@ disableHugoGeneratorInject = true
     title = "AnKo Software Labs"
     [languages.ru.params]
       tagline = "Независимая студия разработки"
+      ownerName = "Антон Козырев"
+      ogImage = "og/default-ru.png"
 
     [[languages.ru.menus.main]]
       name = "Услуги"

@@ -1,7 +1,7 @@
 ---
 title: "Terroir"
 weight: 20
-seoTitle: "Terroir — a personal wine companion with memory"
+seoTitle: "Terroir — a personal wine companion with memory · AnKo Software Labs"
 description: "Terroir is a personal wine companion: your cellar, your taste profile and your recipes, with an AI sommelier that remembers you. Early development."
 ogImage: "og/terroir.png"
 lead: "A personal wine companion with memory: keep track of your cellar, learn your own taste, pair wines with the dishes you actually cook — with an AI sommelier that remembers what you like."

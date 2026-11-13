@@ -1,7 +1,7 @@
 ---
 title: "Избранные работы"
 layout: "work"
-seoTitle: "Избранные работы — AnKo Software Labs"
+seoTitle: "Избранные работы · AnKo Software Labs"
 description: "Flutter-приложения Антона Козырева: Zhabby, перенос Android-приложения с Java на Flutter, Mealhub и GreenFeed, Q-Working и Jobline."
 kicker: "Работы"
 lead: "Мобильные приложения, которые Антон сделал или делал в команде как Flutter-разработчик — в командах заказчиков и работодателей, до и параллельно со студией. Роли указаны как есть, названия заказчиков под NDA не раскрываются."
