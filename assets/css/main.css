@@ -1256,6 +1256,24 @@ body { background-image: none; }
 .cta { background: var(--surface); border-color: var(--border); border-left: 3px solid var(--accent); }
 .btn .arrow { display: none; }
 
+/* Labels read as plain text in the body face, not as mono all-caps tags — the common «AI site» marker. */
+.kicker,
+.service-body h3,
+.case-meta,
+.case-role .mono,
+.case-facts dt,
+.facts dt,
+.note .note-num,
+.portrait-cap,
+.hero-meta .mono {
+  font-family: var(--font-sans);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.kicker-num { display: none; }
+
 /* ---------- Print (legal pages) ---------- */
 @media print {
   :root { --bg: #fff; --text: #000; --muted: #222; --muted-2: #444; --border: #ccc; --border-soft: #ddd; }
