@@ -8,7 +8,7 @@ lead: "Email is the best way to reach the studio. Your message goes directly to 
 mailNote: "Clicking the address opens your mail app with a short template."
 button: "Write an email"
 facts:
-  - { k: "Response", v: "Usually within a few working days" }
+  - { k: "Response", v: "I'll get back to you shortly" }
   - { k: "Where", v: "Remote, worldwide" }
   - { k: "Languages", v: "English, Russian" }
 includeTitle: "Helpful to include"
