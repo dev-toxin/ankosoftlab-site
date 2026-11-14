@@ -9,7 +9,7 @@ mailNote: "Clicking the address opens your mail app with a short template."
 button: "Write an email"
 facts:
   # TODO(Anton): confirm typical response time and the time zone to publish.
-  - { k: "Response", v: "Usually within a few working days" }
+  - { k: "Response", v: "I'll get back to you shortly" }
   - { k: "Time zone", v: "Remote, flexible hours" }
   - { k: "Languages", v: "English, Russian" }
 includeTitle: "Helpful to include"
